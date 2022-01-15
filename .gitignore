@@ -1,0 +1,15 @@
+/.idea
+/__pycache__
+/data/__pycache__
+/dist
+/stringcompare.egg-info
+
+*.pyc
+.vscode/c_cpp_properties.json
+
+build/
+
+*.so
+.vscode/*
+
+docs/_build
