@@ -74,6 +74,8 @@ cmp.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
 
 ## Benchmark
 
+Comparison of the Jaro-Winkler implementation speed for different Python packages.
+
 **StringCompare**
 
 
