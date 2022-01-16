@@ -1,8 +1,10 @@
+#pragma once
+
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <vector>
 
-#include "_jaro.cpp"
+#include "jaro.hpp"
 
 namespace py = pybind11;
 using namespace std;
@@ -40,15 +42,3 @@ public:
   }
   
 };
-
-
-PYBIND11_MODULE(_jarowinkler,m) {
-
-  m.doc() = "";
-  m.attr("__name__") = "stringcompare.distance._jarowinkler";
-
-  py::class_<JaroWinkler, StringComparator>(m, "JaroWinkler")
-        .def(py::init<bool>(), py::arg("similarity")=false)
-        .def("compare", &JaroWinkler::compare);
-
-}

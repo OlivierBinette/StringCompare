@@ -1,8 +1,10 @@
+#pragma once
+
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <vector>
 
-#include "_comparator.cpp"
+#include "comparator.hpp"
 
 namespace py = pybind11;
 using namespace std;
@@ -71,15 +73,3 @@ public:
     }
   }
 };
-
-
-PYBIND11_MODULE(_dameraulevenshtein,m) {
-
-  m.doc() = "";
-  m.attr("__name__") = "stringcompare.distance._levenshtein";
-
-  py::class_<DamerauLevenshtein, StringComparator>(m, "DamerauLevenshtein")
-        .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
-        .def("compare", &DamerauLevenshtein::compare);
-
-}

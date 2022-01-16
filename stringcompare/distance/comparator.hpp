@@ -1,7 +1,8 @@
+#pragma once
+
 #include <pybind11/pybind11.h>
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
-#include <pybind11/functional.h>
 #include <vector>
 
 namespace py = pybind11;
@@ -54,12 +55,3 @@ void declare_comparator(py::module &m, string name) {
         .def("pairwise", &T::pairwise);
 }
 
-PYBIND11_MODULE(_comparator, m) {
-
-    m.doc() = "";
-    m.attr("__name__") = "stringcompare.distance._comparator";
-
-    declare_comparator<Comparator<py::object>>(m, "Comparator");
-    declare_comparator<StringComparator>(m, "StringComparator");
-    declare_comparator<NumericComparator>(m, "NumericComparator");
-}

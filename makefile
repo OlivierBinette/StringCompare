@@ -17,7 +17,6 @@ README.md: $(shell find stringcompare -type f) README.ipynb
 clean:
 	find . -name "*.so" -delete
 	rm -rf build
-	find . -type d -name __pycache__ -exec rm -rf {} \;
 	rm -rf stringcompare.egg-info
 	rm -rf .pytest_cache
 	rm -rf dist

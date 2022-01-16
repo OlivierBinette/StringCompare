@@ -1,7 +1,9 @@
+#pragma once
+
 #include <pybind11/pybind11.h>
 #include <vector>
 
-#include "_comparator.cpp"
+#include "comparator.hpp"
 
 namespace py = pybind11;
 using namespace std;
@@ -64,15 +66,3 @@ public:
   }
   
 };
-
-
-PYBIND11_MODULE(_jaro,m) {
-
-  m.doc() = "";
-  m.attr("__name__") = "stringcompare.distance._jaro";
-
-  py::class_<Jaro, StringComparator>(m, "Jaro")
-        .def(py::init<bool>(), py::arg("similarity")=false)
-        .def("compare", &Jaro::compare);
-
-}
