@@ -15,7 +15,20 @@ Install from github using the following command:
 
     pip install git+https://github.com/OlivierBinette/StringCompare.git
 
-## User Guide
+## Project Roadmap
+
+**StringCompare** currently implements [edit distances](https://en.wikipedia.org/wiki/Edit_distance) and similarity functions, such as the Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler distances. This is *stage 1* of the following development roadmap: 
+
+| Stage  | Goals | Status|
+| :-------------: | ------------- | :-------------: |
+| 1  | pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler) | ![Stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)  |
+| 2  | Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, ...)  |   |
+| 3  | Vocabulary optimizations and metric trees |   |
+| 3  | Embeddings and string distance learning |   |
+
+
+
+## Examples
 
 Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method for string comparison, the `elementwise()` method for elementwise comparison of lists of strings, and the `pairwise()` method for pairwise comparisons between lists.
 
@@ -24,6 +37,7 @@ Comparison algorithms are instanciated as `Comparator` object, which provides th
 from stringcompare import Levenshtein, Jaro, JaroWinkler, DamerauLevenshtein, LCSDistance
 
 cmp = Levenshtein(normalize=True, similarity=False)
+
 cmp.compare("Olivier", "Oliver")
 ```
 
@@ -56,19 +70,6 @@ cmp.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
 
     array([[0.        , 0.26666667],
            [0.14285714, 0.28571429]])
-
-
-
-## Project Roadmap
-
-**StringCompare** currently implements [edit distances](https://en.wikipedia.org/wiki/Edit_distance) and similarity functions, such as the Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler distances. This is *stage 1* of the following development roadmap: 
-
-| Stage  | Goals | Status|
-| :-------------: | ------------- | :-------------: |
-| 1  | pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler) | ![Stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)  |
-| 2  | Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, ...)  |   |
-| 3  | Vocabulary optimizations and metric trees |   |
-| 3  | Embeddings and string distance learning |   |
 
 
 
