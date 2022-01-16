@@ -1,40 +1,42 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
 #include <pybind11/stl.h>
+#include <pybind11/functional.h>
 #include <vector>
 
 namespace py = pybind11;
 using namespace std;
 
-template<class T>
-using Mat = vector<vector<T>>;
-
-template <class dtype>
+template<class dtype>
 class Comparator {
     public:
     virtual double compare(const dtype &s, const dtype &t) = 0;
 
-    vector<double> elementwise(const vector<dtype> &l1, const vector<dtype> &l2) {
+    py::array_t<double> elementwise(const vector<dtype> &l1, const vector<dtype> &l2) {
+
         if (l1.size() != l2.size()) {
             std::length_error("Lists should be of the same size.");
         }
 
-        vector<double> res(l1.size());
-        for (size_t i = 0; i < l1.size(); i++) {
-            res[i] = this->compare(l1[i], l2[i]);
+        py::array_t<double> result(l1.size());
+        auto res = result.mutable_unchecked<1>();
+        for (long int i = 0; i < l1.size(); i++) {
+            res(i) = this->compare(l1[i], l2[i]);
         }
 
-        return res;
+        return result;
     }
 
-    Mat<double> pairwise(const vector<dtype> &l1, const vector<dtype> &l2){
-        Mat<double> res(l1.size(), vector<double>(l2.size()));
+    py::array_t<double> pairwise(const vector<dtype> &l1, const vector<dtype> &l2){
+        py::array_t<double> result({l1.size(), l2.size()});
+        auto res = result.mutable_unchecked<2>();
         for (size_t i = 0; i < l1.size(); i++) {
             for (size_t j = 0; j < l2.size(); j++) {
-                res[i][j] = this->compare(l1[i], l2[j]);
+                res(i,j) = this->compare(l1[i], l2[j]);
             }
         }
 
-        return res;
+        return result;
     }
 
 };
@@ -42,6 +44,7 @@ class Comparator {
 class StringComparator: public Comparator<string> {};
 
 class NumericComparator: public Comparator<double> {};
+
 
 template<class T>
 void declare_comparator(py::module &m, string name) {
