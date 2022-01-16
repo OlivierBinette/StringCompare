@@ -3,18 +3,61 @@
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
 ![![Lifecycle Maturing](https://lifecycle.r-lib.org/articles/figures/lifecycle-maturing.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
-# :zap: **StringCompare**: Highly Efficient String Comparison Functions
+# :zap: **StringCompare**: Efficient String Comparison Functions
 
 **StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by Neil Marchant's excellent [*comparator*](https://github.com/ngmarchant/comparator) R package, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
 
-The key feature of **StringCompare** is a focus on speed through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. See the benchmark below: **StringCompare** is faster than other libraries and much more memory efficient when dealing with long strings.
-
+The key feature of **StringCompare** is a focus on speed through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other libraries (see benchmark below) and much more memory efficient when dealing with long strings.
 
 ## Installation
 
 Install from github using the following command:
 
     pip install git+https://github.com/OlivierBinette/StringCompare.git
+
+## User Guide
+
+Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method for string comparison, the `elementwise()` method for elementwise comparison of lists of strings, and the `pairwise()` method for pairwise comparisons between lists.
+
+
+```python
+from stringcompare import Levenshtein, Jaro, JaroWinkler, DamerauLevenshtein, LCSDistance
+
+cmp = Levenshtein(normalize=True, similarity=False)
+cmp.compare("Olivier", "Oliver")
+```
+
+
+
+
+    0.14285714285714285
+
+
+
+
+```python
+cmp.elementwise(["Olivier", "Olivier"], ["Oliver", "Olivia"])
+```
+
+
+
+
+    array([0.14285714, 0.26666667])
+
+
+
+
+```python
+cmp.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
+```
+
+
+
+
+    array([[0.        , 0.26666667],
+           [0.14285714, 0.28571429]])
+
+
 
 ## Project Roadmap
 
@@ -85,3 +128,7 @@ from textdistance import jaro_winkler
         export CC=gcc-9 && export CXX=g++-9
 
 Please report installation issues [here](https://github.com/OlivierBinette/StringCompare/issues).
+
+## Contribute
+
+**StringCompare** is currently in early development stage and contributions are welcome!
