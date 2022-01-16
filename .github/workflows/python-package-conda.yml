@@ -35,9 +35,9 @@ jobs:
       run: |
         pip install -e .
         python -c "import stringcompare"
-    - name: Test with doctest
-      run: |
-        pytest --doctest-modules
+    #- name: Test with doctest
+    #  run: |
+    #    pytest --doctest-modules
     - name: Run README.ipynb
       run: |
         ipython README.ipynb
