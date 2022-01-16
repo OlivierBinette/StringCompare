@@ -1,6 +1,5 @@
 from .jaro import jaro
 from .comparator import StringComparator
-import numpy as np
 
 
 def jarowinkler(s, t, p=0.1):

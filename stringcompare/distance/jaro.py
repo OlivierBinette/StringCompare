@@ -1,7 +1,5 @@
 from .comparator import StringComparator
 
-import numpy as np
-
 
 def jaro(s, t):
     # Implementation is from https://rosettacode.org/wiki/Jaro_similarity#Python

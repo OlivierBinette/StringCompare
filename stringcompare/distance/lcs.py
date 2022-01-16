@@ -1,5 +1,4 @@
 from .comparator import StringComparator
-
 import numpy as np
 
 
