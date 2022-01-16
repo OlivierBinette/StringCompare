@@ -9,3 +9,6 @@ dependencies:
   - numpy
   - pip:
     - pybind11
+    - jellyfish
+    - py_stringmatching
+    - textdistance
