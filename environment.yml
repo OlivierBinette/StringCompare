@@ -3,11 +3,8 @@ name: stringcompare
 dependencies:
   - python=3.7.9
   - pip
+  - ipython
+  - pytest
   - numpy
-  - scipy
-  - pandas
-  - scikit-learn
   - pip:
-    - igraph
     - pybind11
-    - cppimport

@@ -25,7 +25,7 @@ public:
     this->similarity = similarity;
     this->dmat_size = dmat_size;
 
-    dmat = Mat<int>(2, vector<int>(dmat_size));
+    this->dmat = Mat<int>(2, vector<int>(dmat_size));
   }
 
   int levenshtein(const string &s, const string &t) {

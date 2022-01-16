@@ -20,3 +20,8 @@ clean:
 	rm -rf stringcompare.egg-info
 	rm -rf .pytest_cache
 	rm -rf dist
+
+reinstall:
+	make clean
+	pip uninstall stringcompare
+	pip install -e .
