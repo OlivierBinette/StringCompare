@@ -2,3 +2,6 @@
 	path = extern/pybind11
 	url = ../../pybind/pybind11
 	branch = stable
+[submodule "jellyfish-testdata"]
+	path = jellyfish-testdata
+	url = git@github.com:jamesturk/jellyfish-testdata.git

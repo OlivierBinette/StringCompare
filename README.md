@@ -1,7 +1,7 @@
 ## 
 
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
-![![Lifecycle Maturing](https://lifecycle.r-lib.org/articles/figures/lifecycle-maturing.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 # :zap: **StringCompare**: Efficient String Comparison Functions
 
@@ -30,7 +30,7 @@ Install from github using the following command:
 
 ## Examples
 
-Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method for string comparison, the `elementwise()` method for elementwise comparison of lists of strings, and the `pairwise()` method for pairwise comparisons between lists.
+Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method for string comparison.
 
 
 ```python
@@ -48,6 +48,8 @@ cmp.compare("Olivier", "Oliver")
 
 
 
+Comparator objects also provide the `elementwise()` function for elementwise comparison between lists
+
 
 ```python
 cmp.elementwise(["Olivier", "Olivier"], ["Oliver", "Olivia"])
@@ -59,6 +61,8 @@ cmp.elementwise(["Olivier", "Olivier"], ["Oliver", "Olivia"])
     array([0.14285714, 0.26666667])
 
 
+
+and the `pairwise()` function for pairwise comparisons.
 
 
 ```python
@@ -86,7 +90,7 @@ cmp = JaroWinkler()
 %timeit cmp.compare("Olivier Binette", "Oilvier Benet")
 ```
 
-    385 ns ± 13.8 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    386 ns ± 8.12 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
 
 **jellyfish**

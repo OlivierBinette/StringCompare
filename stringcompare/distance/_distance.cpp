@@ -12,7 +12,6 @@
 
 PYBIND11_MODULE(_distance, m) {
 
-    m.doc() = "";
     m.attr("__name__") = "stringcompare.distance._distance";
 
     declare_comparator<Comparator<py::object>>(m, "Comparator");
