@@ -19,12 +19,11 @@ jobs:
       run: |
         pip install pytest
         pip install pytest-cov
-        pip install -e .
+        pip install git+https://github.com/OlivierBinette/StringCompare.git
         pytest --cov=./ --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
-        token: 72a101e3-1c3b-4d25-bfb2-879c460e1980
         directory: ./coverage/reports/
         env_vars: OS,PYTHON
         fail_ci_if_error: true
