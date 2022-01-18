@@ -20,7 +20,7 @@ jobs:
         pip install pytest
         pip install pytest-cov
         pip install pybind11
-        pip install git+https://github.com/OlivierBinette/StringCompare.git
+        pip install -e .
         pytest --cov=./stringcompare --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
