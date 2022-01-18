@@ -15,6 +15,7 @@ The key feature of **StringCompare** is a focus on speed and extensibility throu
 
 Install from github using the following command:
 
+    pip install setuptools wheel pybind11
     pip install git+https://github.com/OlivierBinette/StringCompare.git
 
 ## Project Roadmap
