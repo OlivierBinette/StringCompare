@@ -5,9 +5,9 @@
 
 # :zap: **StringCompare**: Efficient String Comparison Functions
 
-**StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by Neil Marchant's excellent [*comparator*](https://github.com/ngmarchant/comparator) R package, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
+**StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent [*comparator*](https://github.com/ngmarchant/comparator) and [*stringdist*](https://github.com/markvanderloo/stringdist) R packages, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
 
-The key feature of **StringCompare** is a focus on speed through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+The key feature of **StringCompare** is a focus on speed through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
 
 ## Installation
 
@@ -30,15 +30,15 @@ Install from github using the following command:
 
 ## Examples
 
-Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method for string comparison.
+Comparison algorithms are instanciated as `Comparator` object, which provides the `compare()` method (equivalent to `__call__()`) for string comparison.
 
 
 ```python
 from stringcompare import Levenshtein, Jaro, JaroWinkler, DamerauLevenshtein, LCSDistance
 
-cmp = Levenshtein(normalize=True, similarity=False)
+lev = Levenshtein(normalize=True, similarity=False)
 
-cmp.compare("Olivier", "Oliver")
+lev("Olivier", "Oliver") # same as lev.compare("Olivier", "Oliver")
 ```
 
 
@@ -52,7 +52,7 @@ Comparator objects also provide the `elementwise()` function for elementwise com
 
 
 ```python
-cmp.elementwise(["Olivier", "Olivier"], ["Oliver", "Olivia"])
+lev.elementwise(["Olivier", "Olivier"], ["Oliver", "Olivia"])
 ```
 
 
@@ -66,7 +66,7 @@ and the `pairwise()` function for pairwise comparisons.
 
 
 ```python
-cmp.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
+lev.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
 ```
 
 
@@ -90,7 +90,7 @@ cmp = JaroWinkler()
 %timeit cmp.compare("Olivier Binette", "Oilvier Benet")
 ```
 
-    386 ns ± 8.12 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    361 ns ± 0.916 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
 
 **jellyfish**
@@ -101,7 +101,7 @@ from jellyfish import jaro_winkler
 %timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
 ```
 
-    966 ns ± 35.2 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    1.53 µs ± 20.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
 
 **py_stringmatching**
@@ -113,7 +113,7 @@ jw = JaroWinkler()
 %timeit jw.get_sim_score("Olivier Binette", "Oilvier Benet")
 ```
 
-    3.37 µs ± 68.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+    3.22 µs ± 142 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
 
 **textdistance**
@@ -124,7 +124,7 @@ from textdistance import jaro_winkler
 %timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
 ```
 
-    3.46 µs ± 43.8 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+    3.42 µs ± 38.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
 
 ## Known Bugs

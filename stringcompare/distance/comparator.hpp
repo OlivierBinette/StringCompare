@@ -13,6 +13,10 @@ class Comparator {
     public:
     virtual double compare(const dtype &s, const dtype &t) = 0;
 
+    double operator()(const dtype &s, const dtype &t) {
+        return compare(s, t);
+    }
+
     py::array_t<double> elementwise(const vector<dtype> &l1, const vector<dtype> &l2) {
 
         if (l1.size() != l2.size()) {
@@ -50,6 +54,7 @@ class NumericComparator: public Comparator<double> {};
 template<class T>
 void declare_comparator(py::module &m, string name) {
     py::class_<T>(m, name.c_str())
+        .def("__call__", &T::operator())
         .def("compare", &T::compare)
         .def("elementwise", &T::elementwise)
         .def("pairwise", &T::pairwise);

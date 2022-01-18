@@ -22,6 +22,9 @@ class Comparator(ABC):
         """
         pass
 
+    def __call__(self, e1, e2):
+        return self.compare(e1, e2)
+
     def pairwise(self, l1, l2):
         """
         Pairwise comparisons between two lists.

@@ -19,11 +19,11 @@ PYBIND11_MODULE(_distance, m) {
     declare_comparator<NumericComparator>(m, "NumericComparator");
 
     py::class_<Levenshtein, StringComparator>(m, "Levenshtein")
-      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
+      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
       .def("compare", &Levenshtein::compare);
 
     py::class_<DamerauLevenshtein, StringComparator>(m, "DamerauLevenshtein")
-      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
+      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
       .def("compare", &DamerauLevenshtein::compare);
 
     py::class_<Jaro, StringComparator>(m, "Jaro")
@@ -35,7 +35,7 @@ PYBIND11_MODULE(_distance, m) {
       .def("compare", &JaroWinkler::compare);
 
     py::class_<LCSDistance, StringComparator>(m, "LCSDistance")
-      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
+      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
       .def("compare", &LCSDistance::compare);
 
 }

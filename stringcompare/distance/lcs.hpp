@@ -18,12 +18,14 @@ public:
   bool normalize;
   bool similarity;
   int dmat_size;
+  bool check_bounds;
   Mat<int> dmat;
 
-  LCSDistance(bool normalize=true, bool similarity=false, int dmat_size=100){
+  LCSDistance(bool normalize=true, bool similarity=false, int dmat_size=100, bool check_bounds=true){
     this->normalize = normalize;
     this->similarity = similarity;
     this->dmat_size = dmat_size;
+    this->check_bounds = check_bounds;
 
     dmat = Mat<int>(2, vector<int>(dmat_size));
   }
@@ -53,17 +55,27 @@ public:
   }
 
   double compare(const string &s, const string &t) {
-    double dist = s.size() + t.size() - 2.0 * lcs(s, t);
+    if (check_bounds) {
+      auto m = max(s.size(), t.size()) + 1;
+      dmat[0].reserve(m);
+      dmat[1].reserve(m);
+    }
 
+    double len = s.size() + t.size();
+    if (len == 0) {
+      return similarity;
+    }
+
+    double dist = len - 2.0 * lcs(s, t);
     if (similarity) {
-      double sim = (s.size() + t.size() - dist) / 2.0;
+      double sim = (len - dist) / 2.0;
       if (normalize) {
-        sim = sim / (s.size() + t.size() - sim);
+        sim = sim / (len - sim);
       }
       return sim;
     } else {
       if (normalize) {
-        dist = 2 * dist / (s.size() + t.size() + dist);
+        dist = 2 * dist / (len + dist);
       }
       return dist;
     }

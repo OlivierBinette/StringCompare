@@ -18,12 +18,14 @@ public:
   bool normalize;
   bool similarity;
   int dmat_size;
+  bool check_bounds;
   Mat<int> dmat;
 
-  DamerauLevenshtein(bool normalize=true, bool similarity=false, int dmat_size=100){
+  DamerauLevenshtein(bool normalize=true, bool similarity=false, int dmat_size=100, bool check_bounds=true){
     this->normalize = normalize;
     this->similarity = similarity;
     this->dmat_size = dmat_size;
+    this->check_bounds = check_bounds;
 
     dmat = Mat<int>(3, vector<int>(dmat_size));
   }
@@ -57,6 +59,13 @@ public:
   }
 
   double compare(const string &s, const string &t) {
+    if (check_bounds) {
+      size_t m = max(s.size(), t.size()) + 1;
+      dmat[0].reserve(m);
+      dmat[1].reserve(m);
+      dmat[2].reserve(m);
+    }
+
     double dist = dameraulevenshtein(s, t);
 
     if (similarity) {
