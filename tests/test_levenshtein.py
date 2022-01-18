@@ -1,5 +1,12 @@
 from stringcompare import Levenshtein
 from stringcompare.distance.levenshtein import Levenshtein as PyLevenshtein
+import string
+import random
+random.seed(1)
+
+
+def random_string(n):
+    return "".join(random.choices(string.ascii_uppercase, k=n))
 
 
 def test_Levenshtein_FF():
@@ -199,3 +206,14 @@ def test_PyLevenshtein_dmat_size():
     assert cmp.compare("", "") == 0
     assert cmp.compare(" ", "") == 1
     assert cmp.compare("1234", "1") == 3
+
+
+def test_pycpp():
+    cmp = Levenshtein(normalize=False, similarity=False, dmat_size=20)
+    pycmp = PyLevenshtein(normalize=False, similarity=False, dmat_size=20)
+
+    for i in range(20):
+        for j in range(20):
+            a = random_string(i)
+            b = random_string(j)
+            assert cmp(a, b) == pycmp(a, b)

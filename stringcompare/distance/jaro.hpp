@@ -18,15 +18,20 @@ public:
   }
 
   static double jaro(const string &s, const string &t) {
-    int window = max(1.0, floor(max(s.size(), t.size()) / 2.0) - 1);
+    auto ssize = s.size();
+    auto tsize = t.size();
+    if (ssize + tsize == 0) {
+        return 1.0;
+    }
+    int window = max(1.0, floor(max(ssize, tsize) / 2.0) - 1);
 
     double m = 0;
-    vector<bool> found_s = vector<bool>(s.size(), false);
-    vector<bool> found_t = vector<bool>(t.size(), false);
+    vector<bool> found_s = vector<bool>(ssize, false);
+    vector<bool> found_t = vector<bool>(tsize, false);
 
     size_t j0, j1;
-    for (size_t i = 0; i < s.size(); i++) {
-        for (size_t j = 0; j < t.size(); j++) {
+    for (size_t i = 0; i < ssize; i++) {
+        for (size_t j = 0; j < tsize; j++) {
             if (!found_t[j] && (s[i] == t[j]) && (abs(int(i)-int(j)) < window)) {
                 m += 1;
                 found_s[i] = true;
@@ -42,7 +47,7 @@ public:
 
     double transpositions = 0;
     int j = 0;
-    for (size_t i = 0; i < s.size(); i++) {
+    for (size_t i = 0; i < ssize; i++) {
         if (found_s[i]) {
             while (!found_t[j]) {
                 j += 1;
@@ -54,7 +59,7 @@ public:
         }
     }
     
-    return (m/s.size() + m/t.size() + (m-transpositions/2.0)/m) / 3.0;
+    return (m/ssize + m/tsize + (m-transpositions/2.0)/m) / 3.0;
   }
 
   double compare(const string &s, const string &t) {

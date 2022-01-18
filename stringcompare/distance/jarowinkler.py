@@ -4,7 +4,7 @@ from .comparator import StringComparator
 
 def jarowinkler(s, t, p=0.1):
     ell = 0
-    for i in range(4):
+    for i in range(min(4, len(s), len(t))):
         if s[i] == t[i]:
             ell = ell + 1
         else:

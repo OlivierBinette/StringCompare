@@ -20,7 +20,7 @@ public:
 
   double jarowinkler(const string &s, const string &t, double p=0.1) {
       int ell = 0;
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < min({s.size(), t.size(), size_t(4)}); i++) {
           if (s[i] == t[i]){
               ell += 1;
           } else {

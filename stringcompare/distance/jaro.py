@@ -2,6 +2,8 @@ from .comparator import StringComparator
 
 
 def jaro(s, t):
+    if len(s) + len(t) == 0:
+        return 1.0
     # Implementation is from https://rosettacode.org/wiki/Jaro_similarity#Python
     window = max(1, max(len(s), len(t))//2 - 1)
     m = 0
