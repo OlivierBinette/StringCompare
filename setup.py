@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 from setuptools import setup
-import warnings
-from glob import glob
 from pybind11.setup_helpers import build_ext, intree_extensions
 
 if __name__ == "__main__":
