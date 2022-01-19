@@ -10,13 +10,13 @@ install: $(shell find stringcompare -type f) setup.py pypackage.toml
 
 README.md: $(shell find stringcompare -type f) README.ipynb
 	jupyter nbconvert --to markdown README.ipynb
-	m2r2 README.md
+	m2r README.md
 
 docs: $(shell find stringcompare -type f)
 	sphinx-apidoc -f -o docs/source ./stringcompare
-	m2r2 README.md
+	m2r README.md
 	mv README.rst docs/README.rst
-
+	
 clean:
 	find . -name "*.so" -delete
 	find . -name "__pycache__" | xargs rm -rf
