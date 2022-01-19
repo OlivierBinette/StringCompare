@@ -1,5 +1,3 @@
-Welcome to stringcompare's documentation!
-=========================================
 
 .. include:: ../README.rst
 
