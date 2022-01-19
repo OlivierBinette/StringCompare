@@ -20,3 +20,4 @@ coverage.xml
 *.log
 .lock
 .package.lock
+*.eggs

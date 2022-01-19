@@ -80,15 +80,13 @@ Ready to contribute? Here's how to set up `stringcompare` for local development.
    tests, including testing other Python versions with tox::
 
     $ flake8 stringcompare tests
-    $ python setup.py test or pytest
-    $ tox
+    $ pytest
 
    To get flake8 and tox, just pip install them into your virtualenv.
 
 6. Commit your changes and push your branch to GitHub::
 
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
+    $ git commit -m "Your detailed description of your changes." --all
     $ git push origin name-of-your-bugfix-or-feature
 
 7. Submit a pull request through the GitHub website.
@@ -99,14 +97,24 @@ Pull Request Guidelines
 Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 3.7, 3.8, and 3.9.
+2. CHANGELOG.rst should be updated.
 
 Tips
 ----
 
-To run a subset of tests::
+* The file environment.yml provides a development environment for the package::
 
-$ pytest tests.test_stringcompare
+    conda env create -f environment.yml
+    conda activate stringcompare
+
+* The makefile provides convenient macros to install locally, build the docs and generate the README.md file::
+
+    make
+    make install
+    make docs
+    make README.md
+
+* Test the package using pytest::
+
+    pytest
+

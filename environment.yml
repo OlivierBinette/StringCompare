@@ -5,9 +5,11 @@ dependencies:
   - pip
   - ipython
   - jupyter
-  - pytest
   - numpy
   - pip:
+    - setuptools
+    - flake8
+    - pytest
     - pybind11
     - jellyfish
     - py_stringmatching
@@ -15,4 +17,4 @@ dependencies:
     - myst-parser
     - sphinx
     - sphinx-rtd-theme
-    - m2r
+    - m2r2

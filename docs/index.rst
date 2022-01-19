@@ -9,11 +9,11 @@ Links
    :maxdepth: 2
    :caption: Documentation contents:
 
-   readme
+   README
    source/stringcompare
-   contributing
-   authors
-   history
+   CONTRIBUTING
+   AUTHORS
+   ..CHANGELOG
 
 Indices and tables
 ==================

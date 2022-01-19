@@ -13,11 +13,15 @@ README.md: $(shell find stringcompare -type f) README.ipynb
 	m2r2 README.md
 
 docs: $(shell find stringcompare -type f)
-	sphinx-apidoc -f -o source ./stringcompare
+	sphinx-apidoc -f -o docs/source ./stringcompare
+	m2r2 README.md
+	mv README.rst docs/README.rst
 
 clean:
 	find . -name "*.so" -delete
+	find . -name "__pycache__" | xargs rm -rf
 	rm -rf build
 	rm -rf stringcompare.egg-info
 	rm -rf .pytest_cache
 	rm -rf dist
+	rm -rf docs/_build
