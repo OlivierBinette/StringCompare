@@ -31,13 +31,17 @@ class DamerauLevenshtein(StringComparator):
         self.similarity = similarity
 
     def compare(self, s, t):
+        ssize = len(s) + len(t)
+        if ssize == 0:
+            return 1*self.similarity
+
         dist = dameraulevenshtein(s, t, self.dmat)
         if self.similarity:
-            sim = (len(s) + len(t) - dist) / 2.0
+            sim = (ssize - dist) / 2.0
             if self.normalize:
-                sim = sim / (len(s) + len(t) - sim)
+                sim = sim / (ssize - sim)
             return sim
         else:
             if self.normalize:
-                dist = 2 * dist / (len(s) + len(t) + dist)
+                dist = 2 * dist / (ssize + dist)
             return dist

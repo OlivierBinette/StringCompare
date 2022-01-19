@@ -1,5 +1,5 @@
-from stringcompare import Levenshtein
-from stringcompare.distance.levenshtein import Levenshtein as PyLevenshtein
+from stringcompare import DamerauLevenshtein
+from stringcompare.distance.dameraulevenshtein import DamerauLevenshtein as PyDamerauLevenshtein
 import string
 import random
 random.seed(1)
@@ -9,8 +9,8 @@ def random_string(n):
     return "".join(random.choices(string.ascii_uppercase, k=n))
 
 
-def test_Levenshtein_FF():
-    cmp = Levenshtein(normalize=False, similarity=False)
+def test_DamerauLevenshtein_FF():
+    cmp = DamerauLevenshtein(normalize=False, similarity=False)
 
     assert cmp("", "") == 0
     assert cmp("! +-2/.", "") == 7
@@ -33,11 +33,11 @@ def test_Levenshtein_FF():
     assert cmp.compare("1234", "1") == 3
     assert cmp.compare("1234", "4") == 3
 
-    assert cmp.compare("jellyfish", "smellyfihs") == 4
+    assert cmp.compare("jellyfish", "smellyfihs") == 3
 
 
-def test_Levenshtein_FT():
-    cmp = Levenshtein(normalize=False, similarity=True)
+def test_DamerauLevenshtein_FT():
+    cmp = DamerauLevenshtein(normalize=False, similarity=True)
 
     assert cmp.compare("", "") == 1
 
@@ -57,11 +57,11 @@ def test_Levenshtein_FT():
     assert cmp.compare("1234", "1") == 1
     assert cmp.compare("1234", "4") == 1
 
-    assert cmp.compare("jellyfish", "smellyfihs") == 7.5
+    assert cmp.compare("jellyfish", "smellyfihs") == 8
 
 
-def test_Levenshtein_TF():
-    cmp = Levenshtein(normalize=True, similarity=False)
+def test_DamerauLevenshtein_TF():
+    cmp = DamerauLevenshtein(normalize=True, similarity=False)
 
     assert cmp.compare("", "") == 0
 
@@ -82,8 +82,8 @@ def test_Levenshtein_TF():
     assert cmp.compare("1234", "4") == 3/4
 
 
-def test_Levenshtein_TT():
-    cmp = Levenshtein(normalize=True, similarity=True)
+def test_DamerauLevenshtein_TT():
+    cmp = DamerauLevenshtein(normalize=True, similarity=True)
 
     assert cmp.compare("", "") == 1
 
@@ -104,16 +104,16 @@ def test_Levenshtein_TT():
     assert cmp.compare("1234", "4") == 1/4
 
 
-def test_Levenshtein_dmat_size():
-    cmp = Levenshtein(normalize=False, similarity=False, dmat_size=10)
+def test_DamerauLevenshtein_dmat_size():
+    cmp = DamerauLevenshtein(normalize=False, similarity=False, dmat_size=10)
 
     assert cmp.compare("", "") == 0
     assert cmp.compare(" ", "") == 1
     assert cmp.compare("1234", "1") == 3
 
 
-def test_PyLevenshtein_FF():
-    cmp = PyLevenshtein(normalize=False, similarity=False)
+def test_PyDamerauLevenshtein_FF():
+    cmp = PyDamerauLevenshtein(normalize=False, similarity=False)
 
     assert cmp.compare("", "") == 0
 
@@ -134,8 +134,8 @@ def test_PyLevenshtein_FF():
     assert cmp.compare("1234", "4") == 3
 
 
-def test_PyLevenshtein_FT():
-    cmp = PyLevenshtein(normalize=False, similarity=True)
+def test_PyDamerauLevenshtein_FT():
+    cmp = PyDamerauLevenshtein(normalize=False, similarity=True)
 
     assert cmp.compare("", "") == 1
 
@@ -156,8 +156,8 @@ def test_PyLevenshtein_FT():
     assert cmp.compare("1234", "4") == 1
 
 
-def test_PyLevenshtein_TF():
-    cmp = PyLevenshtein(normalize=True, similarity=False)
+def test_PyDamerauLevenshtein_TF():
+    cmp = PyDamerauLevenshtein(normalize=True, similarity=False)
 
     assert cmp.compare("", "") == 0
 
@@ -178,8 +178,8 @@ def test_PyLevenshtein_TF():
     assert cmp.compare("1234", "4") == 3/4
 
 
-def test_PyLevenshtein_TT():
-    cmp = PyLevenshtein(normalize=True, similarity=True)
+def test_PyDamerauLevenshtein_TT():
+    cmp = PyDamerauLevenshtein(normalize=True, similarity=True)
 
     assert cmp.compare("", "") == 1
 
@@ -200,8 +200,8 @@ def test_PyLevenshtein_TT():
     assert cmp.compare("1234", "4") == 1/4
 
 
-def test_PyLevenshtein_dmat_size():
-    cmp = PyLevenshtein(normalize=False, similarity=False, dmat_size=10)
+def test_PyDamerauLevenshtein_dmat_size():
+    cmp = PyDamerauLevenshtein(normalize=False, similarity=False, dmat_size=10)
 
     assert cmp.compare("", "") == 0
     assert cmp.compare(" ", "") == 1
@@ -209,8 +209,9 @@ def test_PyLevenshtein_dmat_size():
 
 
 def test_pycpp():
-    cmp = Levenshtein(normalize=False, similarity=False, dmat_size=20)
-    pycmp = PyLevenshtein(normalize=False, similarity=False, dmat_size=20)
+    cmp = DamerauLevenshtein(normalize=False, similarity=False, dmat_size=20)
+    pycmp = PyDamerauLevenshtein(
+        normalize=False, similarity=False, dmat_size=20)
 
     for i in range(20):
         for j in range(20):
