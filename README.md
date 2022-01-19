@@ -1,6 +1,4 @@
-## 
-
-
+ 
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
 [![codecov](https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051)](https://codecov.io/gh/OlivierBinette/StringCompare)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)

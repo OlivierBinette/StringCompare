@@ -1,12 +1,18 @@
 Welcome to stringcompare's documentation!
 =========================================
 
+.. include:: ../README.rst
+
+
+Links
+=================
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Documentation contents:
 
    readme
-   source/modules
+   source/stringcompare
    authors
    history
 
