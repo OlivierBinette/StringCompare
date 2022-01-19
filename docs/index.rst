@@ -11,6 +11,7 @@ Links
 
    readme
    source/stringcompare
+   contributing
    authors
    history
 
