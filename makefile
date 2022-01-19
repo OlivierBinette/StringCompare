@@ -10,7 +10,7 @@ install: $(shell find stringcompare -type f) setup.py pypackage.toml
 
 README.md: $(shell find stringcompare -type f) README.ipynb
 	jupyter nbconvert --to markdown README.ipynb
-	m2r README.md
+	m2r2 README.md
 
 clean:
 	find . -name "*.so" -delete

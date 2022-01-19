@@ -1,11 +1,12 @@
 ## 
 
+
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
 [![codecov](https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051)](https://codecov.io/gh/OlivierBinette/StringCompare)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
-# :zap: **StringCompare**: Efficient String Comparison Functions
+# ⚡ **StringCompare**: Efficient String Comparison Functions
 
 **StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent [*comparator*](https://github.com/ngmarchant/comparator) and [*stringdist*](https://github.com/markvanderloo/stringdist) R packages, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
 

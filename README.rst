@@ -1,7 +1,4 @@
 
- 
--
-
 
 .. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg
    :target: https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml

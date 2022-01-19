@@ -6,10 +6,7 @@ Welcome to stringcompare's documentation!
    :caption: Contents:
 
    readme
-   installation
-   usage
    source/modules
-   contributing
    authors
    history
 
