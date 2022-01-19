@@ -25,10 +25,10 @@ Install from github using the following command:
 
 | Stage  | Goals | Status|
 | :-------------: | ------------- | :-------------: |
-| 1  | pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler) | ![Stable](https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg)  |
-| 2  | Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, ...)  |   |
-| 3  | Vocabulary optimizations and metric trees |   |
-| 4  | Embeddings and string distance learning |   |
+| 1  | pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler) | ✔️ |
+| 2  | Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, ...)  | ... |
+| 3  | Vocabulary optimizations and metric trees | ...  |
+| 4  | Embeddings and string distance learning | ...  |
 
 
 

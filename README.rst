@@ -56,19 +56,16 @@ Project Roadmap
      - Status
    * - 1
      - pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler)
-     - 
-     .. image:: https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg
-        :target: https://lifecycle.r-lib.org/articles/figures/lifecycle-stable.svg
-        :alt: Stable
-     
+     - ✔️
    * - 2
      - Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, ...)
-     - 
+     - ...
    * - 3
      - Vocabulary optimizations and metric trees
-     - 
+     - ...
    * - 4
      - Embeddings and string distance learning
+     - ...
 
 
 Examples
