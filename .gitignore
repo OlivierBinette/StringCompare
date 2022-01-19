@@ -15,3 +15,8 @@ build/
 docs/_build
 coverage.xml
 .coverage
+
+*.zip
+*.log
+.lock
+.package.lock
