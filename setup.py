@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     setup(ext_modules=ext_modules,
           name="stringcompare",
-          version="0.0.0",
+          version="0.0.1",
           author="Olivier Binette",
           author_email="olivier.binette@gmail.com",
           license="GPL 3",
