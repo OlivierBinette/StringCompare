@@ -1,6 +1,6 @@
 .PHONY: all
 
-all: install README.md
+all: install docs README.md
 
 env: environment.yml
 	(echo "Creating stringcompare environment..."; conda env create -f environment.yml) || (echo "Updating stringcompare environment...\n"; conda env update -f environment.yml)
@@ -11,6 +11,9 @@ install: $(shell find stringcompare -type f) setup.py pypackage.toml
 README.md: $(shell find stringcompare -type f) README.ipynb
 	jupyter nbconvert --to markdown README.ipynb
 	m2r2 README.md
+
+docs: $(shell find stringcompare -type f)
+	sphinx-apidoc -f -o source ./stringcompare
 
 clean:
 	find . -name "*.so" -delete
