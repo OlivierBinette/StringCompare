@@ -89,7 +89,7 @@ Ready to contribute? Here's how to set up `stringcompare` for local development.
     $ git commit -m "Your detailed description of your changes." --all
     $ git push origin name-of-your-bugfix-or-feature
 
-7. Submit a pull request through the GitHub website.
+7. Submit a pull request to the **dev** branch through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
@@ -98,6 +98,7 @@ Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
 2. CHANGELOG.rst should be updated.
+3. The pull request should be for the dev branch (not the main branch).
 
 Tips
 ----
