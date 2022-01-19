@@ -20,6 +20,11 @@
    :alt: Lifecycle Maturing
 
 
+.. image:: https://readthedocs.org/projects/stringcompare/badge/?version=latest
+   :target: https://stringcompare.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+
 ⚡ **StringCompare**\ : Efficient String Comparison Functions
 ===============================================================
 
