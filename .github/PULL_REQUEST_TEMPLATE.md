@@ -6,16 +6,14 @@ title: "[DEV] Dev PR Title"
 
 ## Check if release PR fulfills these requirements
 
-- [ ] It is for the `dev` branch.
 - [ ] Changelog has been updated and breaking changes have been marked (if any).
-- [ ] Tests have been added.
+- [ ] Tests have been added if necessary.
 
-## Type of changes
+## Type of change
 
 - [ ] Breaking changes.
 - [ ] Backward compatible feature additions.
 - [ ] Backward compatible bug fixes.
 
-## Additional comments
-
+## Additional comments and description of changes
 
