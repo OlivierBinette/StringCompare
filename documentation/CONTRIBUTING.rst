@@ -108,18 +108,13 @@ Tips
     conda env create -f environment.yml
     conda activate stringcompare
 
-* The makefile provides convenient macros to install locally, build the docs and generate the README.md file::
+* The makefile provides convenient macros to install locally, generate the README.md file, and build the docs::
 
     make
     make install
-    make docs
     make README.md
+    make docs
 
 * Test the package using pytest::
 
     pytest
-
-* Build the docs::
-
-    cd docs
-    make html
