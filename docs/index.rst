@@ -13,7 +13,7 @@ Links
    source/stringcompare
    CONTRIBUTING
    AUTHORS
-   ../CHANGELOG
+   ../CHANGELOG.rst
 
 Indices and tables
 ==================

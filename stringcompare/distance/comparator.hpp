@@ -52,11 +52,11 @@ class NumericComparator: public Comparator<double> {};
 
 
 template<class T>
-void declare_comparator(py::module &m, string name) {
-    py::class_<T>(m, name.c_str())
+void declare_comparator(py::module &m, string name, char* classdoc="", char* comparedoc="", char* ewdoc="", char* pwdoc="") {
+    py::class_<T>(m, name.c_str(), classdoc)
         .def("__call__", &T::operator())
-        .def("compare", &T::compare)
-        .def("elementwise", &T::elementwise)
-        .def("pairwise", &T::pairwise);
+        .def("compare", &T::compare, comparedoc)
+        .def("elementwise", &T::elementwise, ewdoc)
+        .def("pairwise", &T::pairwise, pwdoc);
 }
 

@@ -27,18 +27,18 @@ class LCSDistance(StringComparator):
         self.normalize = normalize
         self.similarity = similarity
 
-    def compare(self, s1, s2):
-        s = len(s1) + len(s2)
-        if s == 0:
+    def compare(self, s, t):
+        size = len(s) + len(t)
+        if size == 0:
             return 1*self.similarity
 
-        dist = s - 2 * lcs(s1, s2, self.dmat)
+        dist = size - 2 * lcs(s, t, self.dmat)
         if self.similarity:
-            sim = (s - dist) / 2.0
+            sim = (size - dist) / 2.0
             if self.normalize:
-                sim = sim / (s - sim)
+                sim = sim / (size - sim)
             return sim
         else:
             if self.normalize:
-                dist = 2 * dist / (s + dist)
+                dist = 2 * dist / (size + dist)
             return dist

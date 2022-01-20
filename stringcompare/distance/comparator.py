@@ -5,15 +5,15 @@ import numpy as np
 class Comparator(ABC):
 
     @abstractmethod
-    def compare(e1, e2):
+    def compare(s, t):
         """
         Comparison between two elements.
 
         Parameters
         ----------
-        e1:
+        s:
             element to compare from.
-        e1:
+        t:
             element to compare to.
 
         Returns
@@ -22,8 +22,8 @@ class Comparator(ABC):
         """
         pass
 
-    def __call__(self, e1, e2):
-        return self.compare(e1, e2)
+    def __call__(self, s, t):
+        return self.compare(s, t)
 
     def pairwise(self, l1, l2):
         """
