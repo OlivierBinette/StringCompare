@@ -7,11 +7,11 @@ assignees: ''
 
 ---
 
-## Describe the problem you'd like to be solved
+## Describe the feature you want
 
 
 
-## Describe the solution you'd like
+## What specific problem does it solve?
 
 
 

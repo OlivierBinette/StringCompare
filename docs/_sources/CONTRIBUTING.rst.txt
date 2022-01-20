@@ -98,7 +98,16 @@ Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
 2. CHANGELOG.rst should be updated.
-3. The pull request should be for the dev branch (not the main branch).
+3. The pull request should be for the dev branch.
+
+Releasing a new version
+-----------------------
+
+To release a new version, create a new pull request on the **release** branch. Check that it meets these guidelines:
+
+1. Version has been updated in setup.py following semantic versioning rules.
+2. Changelog has been updated and unreleased changes are now listed under the new version tag.
+
 
 Tips
 ----

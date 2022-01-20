@@ -21,3 +21,4 @@ assignees: ''
  - Package version: 
 
 ## Additional info/comments:
+(e.g. `conda info`)

@@ -52,6 +52,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#get-started">Get Started!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releasing-a-new-version">Releasing a new version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a></li>
 </ul>
 </li>
@@ -173,7 +174,15 @@ $ git push origin name-of-your-bugfix-or-feature
 <ol class="arabic simple">
 <li><p>The pull request should include tests.</p></li>
 <li><p>CHANGELOG.rst should be updated.</p></li>
-<li><p>The pull request should be for the dev branch (not the main branch).</p></li>
+<li><p>The pull request should be for the dev branch.</p></li>
+</ol>
+</section>
+<section id="releasing-a-new-version">
+<h2>Releasing a new version<a class="headerlink" href="#releasing-a-new-version" title="Permalink to this headline"></a></h2>
+<p>To release a new version, create a new pull request on the <strong>release</strong> branch. Check that it meets these guidelines:</p>
+<ol class="arabic simple">
+<li><p>Version has been updated in setup.py following semantic versioning rules.</p></li>
+<li><p>Changelog has been updated and unreleased changes are now listed under the new version tag.</p></li>
 </ol>
 </section>
 <section id="tips">

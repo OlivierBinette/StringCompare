@@ -37,12 +37,12 @@ The `complete API documentation <https://olivierbinette.github.io/StringCompare/
 Installation
 ------------
 
-Install from github using the following command:
+Install the latest release version from github using the following command:
 
 .. code-block::
 
    pip install setuptools wheel pybind11
-   pip install git+https://github.com/OlivierBinette/StringCompare.git
+   pip install git+https://github.com/OlivierBinette/StringCompare.git@release
 
 
 Project Roadmap
