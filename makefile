@@ -34,4 +34,6 @@ docs:
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv html docs
 	rm -rf doctrees
+	touch docs/.nojekyll
+
 
