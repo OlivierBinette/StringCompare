@@ -5,6 +5,11 @@
    :alt: Python package
  
 
+.. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg
+   :target: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment
+   :alt: pages-build-deployment
+
+
 .. image:: https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051
    :target: https://codecov.io/gh/OlivierBinette/StringCompare
    :alt: codecov
@@ -20,9 +25,9 @@
    :alt: Lifecycle Maturing
 
 
-.. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg
-   :target: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment
-   :alt: pages-build-deployment
+.. image:: https://img.shields.io/github/v/release/olivierbinette/stringcompare
+   :target: https://github.com/OlivierBinette/StringCompare/releases
+   :alt: Release version
 
 
 ⚡ **StringCompare**\ : Efficient String Comparison Functions
