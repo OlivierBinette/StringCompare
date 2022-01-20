@@ -17,7 +17,7 @@ if __name__ == "__main__":
                     "edit-distance", "levenshtein", "string-matching"],
           url="https://github.com/OlivierBinette/StringCompare",
           include_package_data=True,
-          packages=["stringcompare"],
+          packages=find_packages(),
           install_requires=["numpy",
                             "scipy",
                             "pandas",

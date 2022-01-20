@@ -11,7 +11,7 @@
 
 The key feature of **StringCompare** is a focus on speed and extensibility through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
 
-The [complete API documentation](https://stringcompare.readthedocs.io/en/latest/source/stringcompare.html) is available on the project website.
+The [complete API documentation](https://stringcompare.readthedocs.io/en/latest/source/stringcompare.html) is available on the project website [stringcompare.readthedocs.io](https://stringcompare.readthedocs.io).
 
 ## Installation
 
