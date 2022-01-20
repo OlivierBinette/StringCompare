@@ -11,9 +11,9 @@ Links
 
    README
    source/stringcompare
-   CONTRIBUTING
+   contributing
    AUTHORS
-   ../CHANGELOG.rst
+   changelog
 
 Indices and tables
 ==================
