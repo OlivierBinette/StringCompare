@@ -1,9 +1,3 @@
----
-name: Pull Request to the Development Branch
-about: Propose a change to the development branch
-title: "[DEV] Dev PR Title"
----
-
 ## Check if release PR fulfills these requirements
 
 - [ ] Changelog has been updated and breaking changes have been marked (if any).
