@@ -15,6 +15,11 @@
    :alt: codecov
 
 
+.. image:: https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge
+   :target: https://www.codefactor.io/repository/github/olivierbinette/stringcompare
+   :alt: CodeFactor
+
+
 .. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
    :target: https://www.gnu.org/licenses/gpl-3.0
    :alt: License: GPL v3
