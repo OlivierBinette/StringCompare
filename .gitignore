@@ -12,10 +12,10 @@ build/
 *.so
 .vscode/*
 
-docs/_build/doctrees
-docs/_build/latex
 coverage.xml
 .coverage
+
+documentation/doctrees
 
 *.zip
 *.log

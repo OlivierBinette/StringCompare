@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all docs
 
 all: install docs README.md
 
@@ -12,11 +12,6 @@ README.md: $(shell find stringcompare -type f) README.ipynb
 	jupyter nbconvert --to markdown README.ipynb
 	m2r README.md
 
-docs: $(shell find stringcompare -type f)
-	sphinx-apidoc -f -o docs/source stringcompare stringcompare/distance/
-	m2r README.md
-	mv README.rst docs/README.rst
-
 clean:
 	find . -name "*.so" -delete
 	find . -name "__pycache__" | xargs rm -rf
@@ -24,4 +19,19 @@ clean:
 	rm -rf stringcompare.egg-info
 	rm -rf .pytest_cache
 	rm -rf dist
-	rm -rf docs/_build
+
+SPHINXOPTS    =
+SPHINXBUILD   = python -msphinx
+SPHINXPROJ    = stringcompare
+SOURCEDIR     = documentation
+BUILDDIR      = .
+
+docs:
+	rm -rf docs
+	sphinx-apidoc -f -o documentation/source stringcompare stringcompare/distance/
+	m2r README.md
+	mv README.rst documentation/README.rst
+	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	mv html docs
+	rm -rf doctrees
+

@@ -119,3 +119,7 @@ Tips
 
     pytest
 
+* Build the docs::
+
+    cd docs
+    make html
