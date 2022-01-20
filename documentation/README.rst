@@ -30,6 +30,11 @@
    :alt: Release version
 
 
+.. image:: https://img.shields.io/github/sponsors/OlivierBinette
+   :target: https://github.com/sponsors/OlivierBinette
+   :alt: Sponsors
+
+
 ⚡ **StringCompare**\ : Efficient String Comparison Functions
 ===============================================================
 

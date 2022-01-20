@@ -5,6 +5,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Release version](https://img.shields.io/github/v/release/olivierbinette/stringcompare)](https://github.com/OlivierBinette/StringCompare/releases)
+[![Sponsors](https://img.shields.io/github/sponsors/OlivierBinette)](https://github.com/sponsors/OlivierBinette)
 
 # ⚡ **StringCompare**: Efficient String Comparison Functions
 
