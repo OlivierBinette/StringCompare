@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Links &mdash; stringcompare  documentation</title>
+  <title>⚡ StringCompare: Efficient String Comparison Functions &mdash; stringcompare  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -58,7 +58,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Links</li>
+      <li>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -68,7 +68,144 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="links">
+  <a class="reference external image-reference" href="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml"><img alt="Python package" src="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://codecov.io/gh/OlivierBinette/StringCompare"><img alt="codecov" src="https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051" /></a>
+<a class="reference external image-reference" href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a>
+<a class="reference external image-reference" href="https://lifecycle.r-lib.org/articles/stages.html"><img alt="Lifecycle Maturing" src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" /></a>
+<a class="reference external image-reference" href="https://stringcompare.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/stringcompare/badge/?version=latest" /></a>
+<section id="stringcompare-efficient-string-comparison-functions">
+<h1>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions<a class="headerlink" href="#stringcompare-efficient-string-comparison-functions" title="Permalink to this headline"></a></h1>
+<p><strong>StringCompare</strong> is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent <a class="reference external" href="https://github.com/ngmarchant/comparator">*comparator*</a> and <a class="reference external" href="https://github.com/markvanderloo/stringdist">*stringdist*</a> R packages, as well as from the <a class="reference external" href="https://github.com/anhaidgroup/py_stringmatching">*py_stringmatching*</a>, <a class="reference external" href="https://github.com/jamesturk/jellyfish">*jellyfish*</a>, and <a class="reference external" href="https://github.com/life4/textdistance">*textdistance*</a> Python packages.</p>
+<p>The key feature of <strong>StringCompare</strong> is a focus on speed and extensibility through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
+<p>The <a class="reference external" href="https://stringcompare.readthedocs.io/en/latest/source/stringcompare.html">complete API documentation</a> is available on the project website <a class="reference external" href="https://stringcompare.readthedocs.io">stringcompare.readthedocs.io</a>.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>Install from github using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">setuptools</span> <span class="n">wheel</span> <span class="n">pybind11</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OlivierBinette</span><span class="o">/</span><span class="n">StringCompare</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</section>
+<section id="project-roadmap">
+<h2>Project Roadmap<a class="headerlink" href="#project-roadmap" title="Permalink to this headline"></a></h2>
+<p><strong>StringCompare</strong> currently implements <a class="reference external" href="https://en.wikipedia.org/wiki/Edit_distance">edit distances</a> and similarity functions, such as the Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler distances. This is <em>stage 1</em> of the following development roadmap:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Goals</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>pybind11 framework and edit-based distances (Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler)</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Token-based and hybrid distances (tf-idf similarity, LSH, Monge-Elkan, …)</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Vocabulary optimizations and metric trees</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Embeddings and string distance learning</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>Comparison algorithms are instanciated as <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> object, which provides the <code class="docutils literal notranslate"><span class="pre">compare()</span></code> method (equivalent to <code class="docutils literal notranslate"><span class="pre">__call__()</span></code>) for string comparison.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">Levenshtein</span><span class="p">,</span> <span class="n">Jaro</span><span class="p">,</span> <span class="n">JaroWinkler</span><span class="p">,</span> <span class="n">DamerauLevenshtein</span><span class="p">,</span> <span class="n">LCSDistance</span>
+
+<span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">similarity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oliver&quot;</span><span class="p">)</span> <span class="c1"># same as lev.compare(&quot;Olivier&quot;, &quot;Oliver&quot;)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.14285714285714285</span>
+</pre></div>
+</div>
+<p>Comparator objects also provide the <code class="docutils literal notranslate"><span class="pre">elementwise()</span></code> function for elementwise comparison between lists</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lev</span><span class="o">.</span><span class="n">elementwise</span><span class="p">([</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Olivier&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Oliver&quot;</span><span class="p">,</span> <span class="s2">&quot;Olivia&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">0.14285714</span><span class="p">,</span> <span class="mf">0.26666667</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and the <code class="docutils literal notranslate"><span class="pre">pairwise()</span></code> function for pairwise comparisons.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lev</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oliver&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Olivia&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span>        <span class="p">,</span> <span class="mf">0.26666667</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.14285714</span><span class="p">,</span> <span class="mf">0.28571429</span><span class="p">]])</span>
+</pre></div>
+</div>
+</section>
+<section id="benchmark">
+<h2>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline"></a></h2>
+<p>Comparison of the Jaro-Winkler implementation speed for different Python packages:</p>
+<p><strong>StringCompare</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
+<span class="n">cmp</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>361 ns ± 0.916 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+<p><strong>jellyfish</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.53 µs ± 20.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+<p><strong>py_stringmatching</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">py_stringmatching</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
+<span class="n">jw</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">jw</span><span class="o">.</span><span class="n">get_sim_score</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3.22 µs ± 142 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+<p><strong>textdistance</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3.42 µs ± 38.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</section>
+<section id="known-bugs">
+<h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p><em>pybind11</em> has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code> is 11, then use the following commands to configure your environment before installing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="mi">9</span> <span class="n">g</span><span class="o">++-</span><span class="mi">9</span>
+<span class="n">export</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span><span class="o">-</span><span class="mi">9</span> <span class="o">&amp;&amp;</span> <span class="n">export</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++-</span><span class="mi">9</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Please report installation issues <a class="reference external" href="https://github.com/OlivierBinette/StringCompare/issues">here</a>.</p>
+</section>
+<section id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline"></a></h2>
+<p><strong>StringCompare</strong> is currently in early development stage and contributions are welcome! See the <a class="reference external" href="https://stringcompare.readthedocs.io/en/latest/CONTRIBUTING.html">contributing</a> page for more information.</p>
+</section>
+</section>
+<section id="links">
 <h1>Links<a class="headerlink" href="#links" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
