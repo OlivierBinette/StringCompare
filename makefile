@@ -1,6 +1,6 @@
 .PHONY: all docs
 
-all: install docs README.md
+all: install README.md docs
 
 env: environment.yml
 	(echo "Creating stringcompare environment..."; conda env create -f environment.yml) || (echo "Updating stringcompare environment...\n"; conda env update -f environment.yml)
