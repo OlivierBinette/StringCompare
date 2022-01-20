@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051)](https://codecov.io/gh/OlivierBinette/StringCompare)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![Documentation Status](https://readthedocs.org/projects/stringcompare/badge/?version=latest)](https://stringcompare.readthedocs.io/en/latest/?badge=latest)
+[![pages-build-deployment](https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment)
 
 # ⚡ **StringCompare**: Efficient String Comparison Functions
 

@@ -20,9 +20,9 @@
    :alt: Lifecycle Maturing
 
 
-.. image:: https://readthedocs.org/projects/stringcompare/badge/?version=latest
-   :target: https://stringcompare.readthedocs.io/en/latest/?badge=latest
-   :alt: Documentation Status
+.. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg
+   :target: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment
+   :alt: pages-build-deployment
 
 
 ⚡ **StringCompare**\ : Efficient String Comparison Functions
