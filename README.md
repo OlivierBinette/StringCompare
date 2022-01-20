@@ -5,12 +5,13 @@
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Documentation Status](https://readthedocs.org/projects/stringcompare/badge/?version=latest)](https://stringcompare.readthedocs.io/en/latest/?badge=latest)
 
-
 # ⚡ **StringCompare**: Efficient String Comparison Functions
 
 **StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent [*comparator*](https://github.com/ngmarchant/comparator) and [*stringdist*](https://github.com/markvanderloo/stringdist) R packages, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
 
 The key feature of **StringCompare** is a focus on speed and extensibility through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+
+The [complete API documentation](https://stringcompare.readthedocs.io/en/latest/source/stringcompare.html) is available on the project website.
 
 ## Installation
 
