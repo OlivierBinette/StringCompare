@@ -5,15 +5,17 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge)](https://www.codefactor.io/repository/github/olivierbinette/stringcompare)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![Release version](https://img.shields.io/github/v/release/olivierbinette/stringcompare)](https://github.com/OlivierBinette/StringCompare/releases)
+[![Release version](https://img.shields.io/github/v/release/olivierbinette/stringcompare)](https://github.com/OlivierBinette/StringCompare/releases) 
 [![Sponsors](https://img.shields.io/github/sponsors/OlivierBinette)](https://github.com/sponsors/OlivierBinette)
 
-<!-- Place this tag in your head or just before your close body tag. -->
+
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <center>
-<!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/OlivierBinette" aria-label="Follow @OlivierBinette on GitHub">Follow @OlivierBinette</a>
+<a class="github-button" href="https://github.com/sponsors/OlivierBinette" data-icon="octicon-heart" aria-label="Sponsor @OlivierBinette on GitHub">Sponsor</a>
+<a class="github-button" href="https://github.com/OlivierBinette/StringCompare" data-icon="octicon-star" aria-label="Star OlivierBinette/StringCompare on GitHub">Star</a>
+<a class="github-button" href="https://github.com/OlivierBinette/StringCompare/fork" data-icon="octicon-repo-forked" aria-label="Fork OlivierBinette/StringCompare on GitHub">Fork</a>
 </center>
 
 # ⚡ **StringCompare**: Efficient String Comparison Functions
