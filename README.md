@@ -1,12 +1,10 @@
  
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
-[![pages-build-deployment](https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051)](https://codecov.io/gh/OlivierBinette/StringCompare)
 [![CodeFactor](https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge)](https://www.codefactor.io/repository/github/olivierbinette/stringcompare)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Release version](https://img.shields.io/github/v/release/olivierbinette/stringcompare)](https://github.com/OlivierBinette/StringCompare/releases) 
-[![Sponsors](https://img.shields.io/github/sponsors/OlivierBinette)](https://github.com/sponsors/OlivierBinette)
+[![Sponsors](https://img.shields.io/github/sponsors/OlivierBinette)](https://github.com/sponsors/OlivierBinette) 
 
 
 # ⚡ **StringCompare**: Efficient String Comparison Functions

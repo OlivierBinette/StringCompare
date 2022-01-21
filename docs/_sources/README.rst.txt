@@ -5,11 +5,6 @@
    :alt: Python package
  
 
-.. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment/badge.svg
-   :target: https://github.com/OlivierBinette/StringCompare/actions/workflows/pages/pages-build-deployment
-   :alt: pages-build-deployment
-
-
 .. image:: https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051
    :target: https://codecov.io/gh/OlivierBinette/StringCompare
    :alt: codecov
@@ -18,11 +13,6 @@
 .. image:: https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge
    :target: https://www.codefactor.io/repository/github/olivierbinette/stringcompare
    :alt: CodeFactor
-
-
-.. image:: https://img.shields.io/badge/License-GPLv3-blue.svg
-   :target: https://www.gnu.org/licenses/gpl-3.0
-   :alt: License: GPL v3
 
 
 .. image:: https://img.shields.io/badge/lifecycle-maturing-blue.svg
@@ -38,7 +28,7 @@
 .. image:: https://img.shields.io/github/sponsors/OlivierBinette
    :target: https://github.com/sponsors/OlivierBinette
    :alt: Sponsors
-
+ 
 
 ⚡ **StringCompare**\ : Efficient String Comparison Functions
 ===============================================================
