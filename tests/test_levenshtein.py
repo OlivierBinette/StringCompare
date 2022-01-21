@@ -51,6 +51,9 @@ def test_Levenshtein_FT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
+    assert cmp.compare("a", "b") == 0.5
+    assert cmp.compare("ab", "cd") == 1
+
     assert cmp.compare("1", "1234") == 1
     assert cmp.compare("4", "1234") == 1
 
@@ -149,6 +152,8 @@ def test_PyLevenshtein_FT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
+    assert cmp.compare("a", "b") == 0.5
+    assert cmp.compare("ab", "cd") == 1
     assert cmp.compare("1", "1234") == 1
     assert cmp.compare("4", "1234") == 1
 

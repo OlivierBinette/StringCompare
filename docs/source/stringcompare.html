@@ -122,12 +122,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>s</strong> – object to compare from</p></li>
-<li><p><strong>t</strong> – object to compare to</p></li>
+<li><p><strong>arg0</strong> – Object to compare from.</p></li>
+<li><p><strong>arg1</strong> – Object to compare to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>numeric value of the comparison</p>
+<dd class="field-even"><p>Numeric value of the comparison.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -135,12 +135,40 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="stringcompare.Comparator.elementwise">
 <span class="sig-name descname"><span class="pre">elementwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.Comparator" title="stringcompare.distance._distance.Comparator"><span class="pre">stringcompare.distance._distance.Comparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.Comparator.elementwise" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Elementwise comparison between two lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg0</strong> – List of objects to compare from.</p></li>
+<li><p><strong>arg1</strong> – List of objects to compare to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numpy array containing comparison values.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The two lists <code class="code docutils literal notranslate"><span class="pre">arg0</span></code> and <code class="code docutils literal notranslate"><span class="pre">arg1</span></code> should be of the same length.</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="stringcompare.Comparator.pairwise">
 <span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.Comparator" title="stringcompare.distance._distance.Comparator"><span class="pre">stringcompare.distance._distance.Comparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.Comparator.pairwise" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Pairwise comparison between two lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg0</strong> – List of objects to compare from.</p></li>
+<li><p><strong>arg1</strong> – List of objects to compare to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2x2 numpy array containing comparison values, where each row corresponds to an element of <code class="code docutils literal notranslate"><span class="pre">arg0</span></code> and each column corresponds to an element of <code class="code docutils literal notranslate"><span class="pre">arg1</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -192,6 +220,45 @@
 <dt class="sig sig-object py" id="stringcompare.Levenshtein">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.</span></span><span class="sig-name descname"><span class="pre">Levenshtein</span></span><a class="headerlink" href="#stringcompare.Levenshtein" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#stringcompare.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Levenshtein distance</p>
+<p>This is defined as the “minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other” (see <a class="reference external" href="https://en.wikipedia.org/wiki/Levenshtein_distance">Wikipedia page</a>). The distance may be normalized or returned as a similarity score instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+<li><p><strong>dmat_size</strong> – Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.</p></li>
+<li><p><strong>check_bounds</strong> – Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as <code class="code docutils literal notranslate"><span class="pre">dmat_size</span></code> is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Examples</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">Levenshtein</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span>
+<span class="go">0.25</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">similarity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span>
+<span class="go">6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="o">.</span><span class="n">elementwise</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;ba&quot;</span><span class="p">])</span>
+<span class="go">array([0.5, 1.])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;ba&quot;</span><span class="p">])</span>
+<span class="go">array([[0.5, 1. ],</span>
+<span class="go">       [1. , 1. ]])</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="stringcompare.Levenshtein.compare">
 <span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.Levenshtein" title="stringcompare.distance._distance.Levenshtein"><span class="pre">stringcompare.distance._distance.Levenshtein</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.Levenshtein.compare" title="Permalink to this definition"></a></dt>
