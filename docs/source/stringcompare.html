@@ -83,7 +83,34 @@
 <p>Abstract base class for pybind11 comparator objects.</p>
 <p>Provides the <a class="reference internal" href="#stringcompare.Comparator.compare" title="stringcompare.Comparator.compare"><code class="xref py py-func docutils literal notranslate"><span class="pre">compare()</span></code></a> function for comparison of two elements, the <a class="reference internal" href="#stringcompare.Comparator.elementwise" title="stringcompare.Comparator.elementwise"><code class="xref py py-func docutils literal notranslate"><span class="pre">elementwise()</span></code></a> function for elementwise comparison between two lists, and the <a class="reference internal" href="#stringcompare.Comparator.pairwise" title="stringcompare.Comparator.pairwise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairwise()</span></code></a> function for pairwise comparison between elements of two lists.</p>
 <p>Parameters for the comparison functions (e.g. to return a distance or similarity, whether or not to normalize, weights, etc) should be provided to the constructor.</p>
-<p>All subclass implementations of these functions are in C++ for efficiency.</p>
+<p>The current class structure, implemented in C++, is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Comparator
+─┬────────
+ ├─► compare()
+ │
+ ├─► elementwise()
+ │
+ ├─► pairwise()
+ │
+ │StringComparator
+ └─┬───────────────
+   │
+   │ Levenshtein
+   ├────────────
+   │
+   │ DamerauLevenshtein
+   ├────────────────────
+   │
+   │ LCSDistance
+   ├────────────
+   │
+   │ Jaro
+   ├─────
+   │
+   │ JaroWinkler
+   └────────────
+</pre></div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="#stringcompare.StringComparator" title="stringcompare.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringComparator</span></code></a> <code class="xref py py-class docutils literal notranslate"><span class="pre">NumericComparator</span></code></p>

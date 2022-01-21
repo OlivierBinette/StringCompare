@@ -1,3 +1,6 @@
+.. role:: raw-html-m2r(raw)
+   :format: html
+
 
 
 .. image:: https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg
@@ -38,6 +41,23 @@
 .. image:: https://img.shields.io/github/sponsors/OlivierBinette
    :target: https://github.com/sponsors/OlivierBinette
    :alt: Sponsors
+
+
+:raw-html-m2r:`<!-- Place this tag in your head or just before your close body tag. -->`
+
+
+.. raw:: html
+
+   <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+.. raw:: html
+
+   <center>
+   <!-- Place this tag where you want the button to render. -->
+   <a class="github-button" href="https://github.com/OlivierBinette" aria-label="Follow @OlivierBinette on GitHub">Follow @OlivierBinette</a>
+   </center>
 
 
 ⚡ **StringCompare**\ : Efficient String Comparison Functions

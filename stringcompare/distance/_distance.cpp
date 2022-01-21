@@ -22,7 +22,33 @@ Provides the :func:`~stringcompare.Comparator.compare` function for comparison o
 
 Parameters for the comparison functions (e.g. to return a distance or similarity, whether or not to normalize, weights, etc) should be provided to the constructor.
 
-All subclass implementations of these functions are in C++ for efficiency.
+The current class structure, implemented in C++, is as follows::
+
+  Comparator
+  ─┬────────
+   ├─► compare()
+   │
+   ├─► elementwise()
+   │
+   ├─► pairwise()
+   │
+   │StringComparator
+   └─┬───────────────
+     │
+     │ Levenshtein
+     ├────────────
+     │
+     │ DamerauLevenshtein
+     ├────────────────────
+     │
+     │ LCSDistance
+     ├────────────
+     │
+     │ Jaro
+     ├─────
+     │
+     │ JaroWinkler
+     └────────────
 
 .. seealso:: :class:`StringComparator` :class:`NumericComparator`
 )"""",
