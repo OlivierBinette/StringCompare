@@ -166,10 +166,10 @@
 <p><strong>StringCompare</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
 <span class="n">cmp</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">cmp</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>361 ns ± 0.916 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>703 ns ± 14.7 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 <p><strong>jellyfish</strong></p>
@@ -177,7 +177,7 @@
 <span class="o">%</span><span class="n">timeit</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.53 µs ± 20.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.63 µs ± 46.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 <p><strong>py_stringmatching</strong></p>

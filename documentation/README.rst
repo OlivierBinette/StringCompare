@@ -133,11 +133,11 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
 
    from stringcompare import JaroWinkler
    cmp = JaroWinkler()
-   %timeit cmp.compare("Olivier Binette", "Oilvier Benet")
+   %timeit cmp.pairwise(["Olivier Binette"], ["Oilvier Benet"])
 
 .. code-block::
 
-   361 ns ± 0.916 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+   703 ns ± 14.7 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
 
 
@@ -150,7 +150,7 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
 
 .. code-block::
 
-   1.53 µs ± 20.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+   1.63 µs ± 46.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
 
 
