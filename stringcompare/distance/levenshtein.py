@@ -2,27 +2,25 @@ import numpy as np
 from .comparator import StringComparator
 
 
-def levenshtein(s, t, dmat):
+def levenshtein(s, t):
     m = len(s)
     n = len(t)
-    dmat[:, 0] = np.arange(dmat.shape[0])
+    buffer = np.arange(max(n, m) + 1)
 
+    p = m
     for j in range(1, n+1):
-        dmat[0, (j-1) % 2] = j-1
-        dmat[0, j % 2] = j
+        temp = j-1
+        p = j
         for i in range(1, m+1):
-            cost = 0
-            if s[i-1] != t[j-1]:
-                cost = 1
-            dmat[i, j % 2] = min(dmat[i-1, j % 2] + 1, dmat[i, (j-1) % 2] +
-                                 1, dmat[i-1, (j-1) % 2] + cost)
-    return dmat[m, n % 2]
+            p = min(p + 1, buffer[i] + 1, temp + (s[i-1] != t[j-1]))
+            temp = buffer[i]
+            buffer[i] = p
+    return p
 
 
 class Levenshtein(StringComparator):
 
     def __init__(self, normalize=True, similarity=False, dmat_size=100):
-        self.dmat = np.zeros((dmat_size, 2))
         self.normalize = normalize
         self.similarity = similarity
 
@@ -31,7 +29,7 @@ class Levenshtein(StringComparator):
         if size == 0:
             return 1*self.similarity
 
-        dist = levenshtein(s, t, self.dmat)
+        dist = levenshtein(s, t)
         if self.similarity:
             sim = (size - dist) / 2.0
             if self.normalize:
