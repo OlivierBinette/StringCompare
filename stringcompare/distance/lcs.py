@@ -5,25 +5,27 @@ import numpy as np
 def lcs(s, t, dmat):
     m = len(s)
     n = len(t)
-    dmat[:, 0] = np.zeros(dmat.shape[0])
+    dmat = np.zeros(m+1)
 
+    p = 0 
     for j in range(1, n+1):
-        dmat[0, (j-1) % 2] = 0
-        dmat[0, j % 2] = 0
+        temp = 0
+        p = 0
         for i in range(1, m+1):
-            cost = 0
             if s[i-1] != t[j-1]:
-                dmat[i, j % 2] = max(dmat[i, (j-1) % 2], dmat[i-1, j % 2])
+                p = max(dmat[i], p)
             else:
-                dmat[i, j % 2] = dmat[i-1, (j-1) % 2] + 1
+                p = temp + 1
+            temp = dmat[i]
+            dmat[i] = p
 
-    return dmat[m, n % 2]
+    return p
 
 
 class LCSDistance(StringComparator):
 
     def __init__(self, normalize=True, similarity=False, dmat_size=100):
-        self.dmat = np.zeros((dmat_size, 2))
+        self.dmat = np.zeros(dmat_size)
         self.normalize = normalize
         self.similarity = similarity
 
