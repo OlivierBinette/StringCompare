@@ -86,52 +86,38 @@ lev.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
 
 ## Benchmark
 
-Comparison of the Jaro-Winkler implementation speed for different Python packages:
-
-**StringCompare**
+Comparison of the Jaro-Winkler implementation speed for different Python packages, when comparing the strings "Olivier Binette" and "Oilvier Benet":
 
 
 ```python
+from timeit import timeit
+from tabulate import tabulate
+
+# Comparison functions
 from stringcompare import JaroWinkler
 cmp = JaroWinkler()
-%timeit cmp.compare("Olivier Binette", "Oilvier Benet")
-```
-
-    385 ns ± 18.2 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-
-
-**jellyfish**
-
-
-```python
 from jellyfish import jaro_winkler
-%timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
-```
-
-    1.63 µs ± 46.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-
-
-**py_stringmatching**
-
-
-```python
 from py_stringmatching import JaroWinkler
 jw = JaroWinkler()
-%timeit jw.get_sim_score("Olivier Binette", "Oilvier Benet")
+from textdistance import jaro_winkler as td_jaro_winkler
+
+functions = {
+    "StringCompare": lambda: cmp.compare("Olivier Binette", "Oilvier Benet"),
+    "jellyfish": lambda: jaro_winkler("Olivier Binette", "Oilvier Benet"),
+    "py_stringmatching": lambda: jw.get_sim_score("Olivier Binette", "Oilvier Benet"),
+    "textdistance": lambda: td_jaro_winkler("Olivier Binette", "Oilvier Benet")
+}
+
+table = [[name, timeit(fun, number=1000000) * 1000] for name, fun in functions.items()]
+print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 ```
 
-    3.22 µs ± 142 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-
-
-**textdistance**
-
-
-```python
-from textdistance import jaro_winkler
-%timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
-```
-
-    3.42 µs ± 38.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+    Package              avg runtime (ns)
+    -----------------  ------------------
+    StringCompare                 503.021
+    jellyfish                    1039.57
+    py_stringmatching            3439.12
+    textdistance                 3499.9
 
 
 ## Known Bugs

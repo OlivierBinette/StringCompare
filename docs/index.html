@@ -153,39 +153,35 @@
 </section>
 <section id="benchmark">
 <h2>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline"></a></h2>
-<p>Comparison of the Jaro-Winkler implementation speed for different Python packages:</p>
-<p><strong>StringCompare</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
+<p>Comparison of the Jaro-Winkler implementation speed for different Python packages, when comparing the strings “Olivier Binette” and “Oilvier Benet”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="c1"># Comparison functions</span>
+<span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
 <span class="n">cmp</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>385 ns ± 18.2 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-</pre></div>
-</div>
-<p><strong>jellyfish</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.63 µs ± 46.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-</pre></div>
-</div>
-<p><strong>py_stringmatching</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">py_stringmatching</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
+<span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
+<span class="kn">from</span> <span class="nn">py_stringmatching</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
 <span class="n">jw</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">jw</span><span class="o">.</span><span class="n">get_sim_score</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">jaro_winkler</span> <span class="k">as</span> <span class="n">td_jaro_winkler</span>
+
+<span class="n">functions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;StringCompare&quot;</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;jellyfish&quot;</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;py_stringmatching&quot;</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">jw</span><span class="o">.</span><span class="n">get_sim_score</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;textdistance&quot;</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">td_jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="n">name</span><span class="p">,</span> <span class="n">timeit</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">functions</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Package&quot;</span><span class="p">,</span> <span class="s2">&quot;avg runtime (ns)&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3.22 µs ± 142 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-</pre></div>
-</div>
-<p><strong>textdistance</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">jaro_winkler</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3.42 µs ± 38.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>              <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+<span class="o">-----------------</span>  <span class="o">------------------</span>
+<span class="n">StringCompare</span>                 <span class="mf">503.021</span>
+<span class="n">jellyfish</span>                    <span class="mf">1039.57</span>
+<span class="n">py_stringmatching</span>            <span class="mf">3439.12</span>
+<span class="n">textdistance</span>                 <span class="mf">3499.9</span>
 </pre></div>
 </div>
 </section>
