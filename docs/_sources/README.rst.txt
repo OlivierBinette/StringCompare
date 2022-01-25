@@ -147,17 +147,20 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
        "textdistance": td_jaro_winkler
    }
 
-   table = [[name, timeit(lambda: fun("Olivier Binette", "Oilvier Benet"), number=1000000) * 1000] for name, fun in functions.items()]
+   table = [
+       [name, timeit(lambda: fun("Olivier Binette", "Oilvier Benet"), number=1000000) * 1000]
+       for name, fun in functions.items()
+   ]
    print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 
 .. code-block::
 
    Package              avg runtime (ns)
    -----------------  ------------------
-   StringCompare                 414.568
-   jellyfish                    1040.36
-   py_stringmatching            3619.47
-   textdistance                 3543.03
+   StringCompare                 407.819
+   jellyfish                    1058.49
+   py_stringmatching            3361.83
+   textdistance                 3450.84
 
 
 

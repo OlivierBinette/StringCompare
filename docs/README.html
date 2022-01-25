@@ -181,16 +181,19 @@
     <span class="s2">&quot;textdistance&quot;</span><span class="p">:</span> <span class="n">td_jaro_winkler</span>
 <span class="p">}</span>
 
-<span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="n">name</span><span class="p">,</span> <span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">fun</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">),</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">functions</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">timeit</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">fun</span><span class="p">(</span><span class="s2">&quot;Olivier Binette&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier Benet&quot;</span><span class="p">),</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">functions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Package&quot;</span><span class="p">,</span> <span class="s2">&quot;avg runtime (ns)&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>              <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 <span class="o">-----------------</span>  <span class="o">------------------</span>
-<span class="n">StringCompare</span>                 <span class="mf">414.568</span>
-<span class="n">jellyfish</span>                    <span class="mf">1040.36</span>
-<span class="n">py_stringmatching</span>            <span class="mf">3619.47</span>
-<span class="n">textdistance</span>                 <span class="mf">3543.03</span>
+<span class="n">StringCompare</span>                 <span class="mf">407.819</span>
+<span class="n">jellyfish</span>                    <span class="mf">1058.49</span>
+<span class="n">py_stringmatching</span>            <span class="mf">3361.83</span>
+<span class="n">textdistance</span>                 <span class="mf">3450.84</span>
 </pre></div>
 </div>
 </section>
