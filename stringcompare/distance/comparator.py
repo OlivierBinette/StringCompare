@@ -3,7 +3,6 @@ import numpy as np
 
 
 class Comparator(ABC):
-
     @abstractmethod
     def compare(s, t):
         """
@@ -38,7 +37,8 @@ class Comparator(ABC):
 
         Returns
         -------
-        Matrix of dimension len(l1)xlen(l2), where each row corresponds to an element of l1 and each column corresponds to an element of l2.
+        Matrix of dimension len(l1)xlen(l2), where each row corresponds to an
+        element of l1 and each column corresponds to an element of l2.
         """
         return np.array([[self.compare(s, t, self.dmat) for t in l2] for s in l1])
 

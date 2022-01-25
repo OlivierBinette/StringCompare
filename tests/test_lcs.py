@@ -2,6 +2,7 @@ from stringcompare import LCSDistance
 from stringcompare.distance.lcs import LCSDistance as PyLCSDistance
 import string
 import random
+
 random.seed(1)
 
 
@@ -75,11 +76,11 @@ def test_LCSDistance_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_LCSDistance_TT():
@@ -97,11 +98,11 @@ def test_LCSDistance_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_LCSDistance_dmat_size():
@@ -171,11 +172,11 @@ def test_PyLCSDistance_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_PyLCSDistance_TT():
@@ -193,11 +194,11 @@ def test_PyLCSDistance_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_PyLCSDistance_dmat_size():

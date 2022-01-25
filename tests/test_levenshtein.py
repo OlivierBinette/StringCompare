@@ -2,6 +2,7 @@ from stringcompare import Levenshtein
 from stringcompare.distance.levenshtein import Levenshtein as PyLevenshtein
 import string
 import random
+
 random.seed(1)
 
 
@@ -78,11 +79,11 @@ def test_Levenshtein_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_Levenshtein_TT():
@@ -100,11 +101,11 @@ def test_Levenshtein_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_Levenshtein_dmat_size():
@@ -176,11 +177,11 @@ def test_PyLevenshtein_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_PyLevenshtein_TT():
@@ -198,11 +199,11 @@ def test_PyLevenshtein_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_PyLevenshtein_dmat_size():
