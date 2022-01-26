@@ -23,5 +23,6 @@ jobs:
         python -c "import stringcompare"
     - name: Test with pytest
       run: |
+        pip install pytest
         pytest
         
