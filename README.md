@@ -134,4 +134,4 @@ Please report installation issues [here](https://github.com/OlivierBinette/Strin
 
 ## Contribute
 
-**StringCompare** is currently in early development stage and contributions are welcome! See the [contributing](https://stringcompare.readthedocs.io/en/latest/CONTRIBUTING.html) page for more information.
+**StringCompare** is currently in early development stage and contributions are welcome! See the [contributing](https://olivierbinette.github.io/StringCompare/contributing.html) page for more information. 
