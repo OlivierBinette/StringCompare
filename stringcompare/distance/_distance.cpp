@@ -128,11 +128,23 @@ Pairwise comparison between two lists.
       .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
       .def("compare", &DamerauLevenshtein::compare);
 
-    py::class_<Jaro, StringComparator>(m, "Jaro")
+    py::class_<Jaro, StringComparator>(m, "Jaro",
+    R"""(
+    Jaro distance
+
+    :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
+    )"""
+    )
       .def(py::init<bool>(), py::arg("similarity")=false)
       .def("compare", &Jaro::compare);
   
-    py::class_<JaroWinkler, StringComparator>(m, "JaroWinkler")
+    py::class_<JaroWinkler, StringComparator>(m, "JaroWinkler",
+    R"""(
+    Jaro-Winkler distance
+
+    :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
+    )"""
+    )
       .def(py::init<bool>(), py::arg("similarity")=false)
       .def("compare", &JaroWinkler::compare);
 
