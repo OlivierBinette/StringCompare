@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
 import numpy as np
+from typing import Generic, TypeVar, List
 
-
-class Comparator(ABC):
+T = TypeVar('T')
+class Comparator(ABC, Generic[T]):
     @abstractmethod
-    def compare(s, t):
+    def compare(s: T, t: T) -> float:
         """
         Comparison between two elements.
 
@@ -21,10 +22,10 @@ class Comparator(ABC):
         """
         pass
 
-    def __call__(self, s, t):
+    def __call__(self, s: T, t: T) -> float:
         return self.compare(s, t)
 
-    def pairwise(self, l1, l2):
+    def pairwise(self, l1: List[T], l2: List[T]) -> np.ndarray:
         """
         Pairwise comparisons between two lists.
 
@@ -42,13 +43,13 @@ class Comparator(ABC):
         """
         return np.array([[self.compare(s, t, self.dmat) for t in l2] for s in l1])
 
-    def elementwise(self, l1, l2):
+    def elementwise(self, l1: List[T], l2: List[T]) -> np.ndarray:
         return np.array([self.compare(s, t, self.dmat) for s, t in zip(l1, l2)])
 
 
-class StringComparator(Comparator):
+class StringComparator(Comparator[str]):
     pass
 
 
-class NumericComparator(Comparator):
+class NumericComparator(Comparator[float]):
     pass
