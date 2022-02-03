@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod, abstractproperty
-from collections.abc import Container
+from collections.abc import Collection
 from typing import List
 
 
@@ -9,26 +9,26 @@ class Tokenizer(ABC):
     The tokenize() method returns a Container with tokens extracted from a given string.
     """
     
-    def __call__(self, sentence: str) -> Container:
+    def __call__(self, sentence: str) -> Collection:
         return self.tokenize(sentence)
 
     @abstractmethod
-    def tokenize(self, sentence: str) -> Container:
+    def tokenize(self, sentence: str) -> Collection:
         pass
 
     @abstractmethod
-    def batch_tokenize(self, sentences: List[str]) -> List[Container]:
+    def batch_tokenize(self, sentences: List[str]) -> List[Collection]:
         pass
 
 class DelimTokenizer(Tokenizer):
 
-    def __init__(self, delim: str):
+    def __init__(self, delim: str=' '):
         self.delim = delim
     
-    def tokenize(self, sentence: str) -> Container:
+    def tokenize(self, sentence: str) -> Collection:
         return sentence.split(self.delim)
 
-    def batch_tokenize(self, sentences: List[str]) -> List[Container]:
+    def batch_tokenize(self, sentences: List[str]) -> List[Collection]:
         return [self.tokenize(s) for s in sentences]
 
 class WhitespaceTokenizer(DelimTokenizer):
