@@ -7,7 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   stringcompare.tokenizer
+   stringcompare.preprocessing
 
 Module contents
 ---------------
