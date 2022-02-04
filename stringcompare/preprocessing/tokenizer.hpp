@@ -19,7 +19,3 @@ class Tokenizer {
 
 }
 
-class DelimTokenizer: public Tokenizer {
-
-}
-
