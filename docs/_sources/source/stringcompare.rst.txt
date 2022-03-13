@@ -7,7 +7,11 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+<<<<<<< HEAD
    stringcompare.preprocessing
+=======
+   stringcompare.distance
+>>>>>>> dev
 
 Module contents
 ---------------

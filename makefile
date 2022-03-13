@@ -28,7 +28,7 @@ BUILDDIR      = .
 
 docs:
 	rm -rf docs
-	sphinx-apidoc -f -o documentation/source stringcompare stringcompare/distance/
+	sphinx-apidoc -f -o documentation/source stringcompare stringcompare/
 	m2r README.md
 	mv README.rst documentation/README.rst
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
