@@ -2,11 +2,11 @@ from abc import ABC, abstractmethod, abstractproperty
 from collections.abc import Container
 from typing import Dict, List
 
-class Tagger(ABC):
 
+class Tagger(ABC):
     @property
     @classmethod
-    @abstractmethod    
+    @abstractmethod
     def LABELS(cls):
         pass
 
@@ -20,26 +20,29 @@ class Tagger(ABC):
     def batch_tag(self, objs: List) -> List[Dict]:
         return [self.tag(obj) for obj in objs]
 
+
 class DeepparseAddressTagger(Tagger):
 
     LABELS = [
-        'StreetNumber',
-        'StreetName',
-        'Unit',
-        'Municipality',
-        'Province',
-        'PostalCode',
-        'Orientation',
-        'GeneralDelivery'
+        "StreetNumber",
+        "StreetName",
+        "Unit",
+        "Municipality",
+        "Province",
+        "PostalCode",
+        "Orientation",
+        "GeneralDelivery",
     ]
 
     def __init__(self, deepparse_handle):
-        assert deepparse_handle.__class__.__name__ == "AddressParser", "deepparse_handle should be an AddressParser instance."
+        assert (
+            deepparse_handle.__class__.__name__ == "AddressParser"
+        ), "deepparse_handle should be an AddressParser instance."
         self.deepparse_handle = deepparse_handle
 
     def tag(self, obj) -> Dict:
         return self.deepparse_handle(obj).to_dict()
-    
+
     def batch_tag(self, objs: List) -> List[Dict]:
         return [r.to_dict() for r in self.deepparse_handle(objs)]
 

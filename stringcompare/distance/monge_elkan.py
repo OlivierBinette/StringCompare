@@ -5,9 +5,14 @@ from ..preprocessing.tokenizer import Tokenizer
 from ..distance.levenshtein import Levenshtein
 from ..preprocessing.tokenizer import WhitespaceTokenizer
 
-class MongeElkan(StringComparator):
 
-    def __init__(self, comparator: StringComparator = Levenshtein(), tokenizer: Tokenizer = WhitespaceTokenizer(), symmetrize=False):
+class MongeElkan(StringComparator):
+    def __init__(
+        self,
+        comparator: StringComparator = Levenshtein(),
+        tokenizer: Tokenizer = WhitespaceTokenizer(),
+        symmetrize=False,
+    ):
         self.comparator = comparator
         self.tokenizer = tokenizer
         self.symmetrize = symmetrize
@@ -24,7 +29,3 @@ class MongeElkan(StringComparator):
             return min(self.monge_elkan(s, t), self.monge_elkan(t, s))
         else:
             return self.monge_elkan(s, t)
-
-
-
-

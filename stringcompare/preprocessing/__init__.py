@@ -1,13 +1,6 @@
-from .tokenizer import (
-    Tokenizer, 
-    DelimTokenizer, 
-    WhitespaceTokenizer
-)
-from .tagger import (
-    Tagger, 
-    DeepparseAddressTagger, 
-    LibpostalAddressTagger
-)
+from .tokenizer import Tokenizer, DelimTokenizer, WhitespaceTokenizer
+from .tagger import Tagger, DeepparseAddressTagger, LibpostalAddressTagger
+from .preprocessor import Preprocessor
 
 __all__ = [
     "Tokenizer",
@@ -15,5 +8,6 @@ __all__ = [
     "WhitespaceTokenizer",
     "Tagger",
     "DeepparseAddressTagger",
-    "LibpostalAddressTagger"
+    "LibpostalAddressTagger",
+    "Preprocessor",
 ]

@@ -2,7 +2,9 @@ from abc import ABC, abstractmethod
 import numpy as np
 from typing import Generic, TypeVar, List
 
-T = TypeVar('T')
+T = TypeVar("T")
+
+
 class Comparator(ABC, Generic[T]):
     @abstractmethod
     def compare(s: T, t: T) -> float:
