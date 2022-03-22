@@ -160,10 +160,10 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
 
    Package              avg runtime (ns)
    -----------------  ------------------
-   StringCompare                 357.367
-   jellyfish                    1536.31
-   py_stringmatching            3367.28
-   textdistance                 3413.26
+   StringCompare                 380.531
+   jellyfish                    1524.4
+   py_stringmatching            3209.6
+   textdistance                 3331.15
 
 
 
@@ -191,6 +191,6 @@ Acknowledgements
 
 This project is made possible by the support of the `Natural Sciences and Engineering Research Council of Canada (NSERC) <www.nserc-crsng.gc.ca>`_ and by the support of a `G-Research <https://www.gresearch.co.uk/>`_ grant.
 
-:raw-html-m2r:`<a href="https://www.gresearch.co.uk/"><img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/gtqacyz2dx8jqicpnmqr" height=100 style="margin:20px"></a>`\ :raw-html-m2r:`<a href="www.nserc-crsng.gc.ca"><img src="https://umanitoba.ca/faculties/engineering/media/NSERC_Logo.png" height=100 style="margin:20px"></a>`
+:raw-html-m2r:`<a href="https://www.gresearch.co.uk/"><img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/gtqacyz2dx8jqicpnmqr" height=100 style="margin:20px"></a>`\ :raw-html-m2r:`<a href="https://www.nserc-crsng.gc.ca"><img src="https://umanitoba.ca/faculties/engineering/media/NSERC_Logo.png" height=100 style="margin:20px"></a>`
 
 I would also like to thank the support of my individual `Github sponsors <https://github.com/sponsors/olivierbinette>`_.
