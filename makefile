@@ -9,7 +9,7 @@ install: $(shell find stringcompare -type f) setup.py pyproject.toml
 	pip install -e .
 
 README.md: $(shell find stringcompare -type f) README.ipynb
-	jupyter nbconvert --to markdown README.ipynb
+	jupyter nbconvert --execute --to markdown README.ipynb
 	m2r README.md
 
 clean:
