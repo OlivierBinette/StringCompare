@@ -1,4 +1,4 @@
-.PHONY: all docs
+.PHONY: all docs dockertest
 
 all: install README.md docs
 
@@ -9,8 +9,11 @@ install: $(shell find stringcompare -type f) setup.py pyproject.toml
 	pip install -e .
 
 README.md: $(shell find stringcompare -type f) README.ipynb
-	jupyter nbconvert --to markdown README.ipynb
+	jupyter nbconvert --execute --to markdown README.ipynb
 	m2r README.md
+
+dockertest: dockertest.sh
+	sudo docker run -v $$(pwd):/stringcompare -w /stringcompare python:3.7.9 bash dockertest.sh
 
 clean:
 	find . -name "*.so" -delete
@@ -28,7 +31,7 @@ BUILDDIR      = .
 
 docs:
 	rm -rf docs
-	sphinx-apidoc -f -o documentation/source stringcompare stringcompare/
+	sphinx-apidoc -f -o documentation/source . .
 	m2r README.md
 	mv README.rst documentation/README.rst
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

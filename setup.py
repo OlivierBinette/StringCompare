@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from setuptools import setup, find_packages
+from setuptools import setup
 from pybind11.setup_helpers import build_ext, intree_extensions
 
 if __name__ == "__main__":
@@ -8,7 +8,7 @@ if __name__ == "__main__":
     setup(
         ext_modules=ext_modules,
         name="stringcompare",
-        version="0.0.1.post",
+        version="0.0.1.post0",
         author="Olivier Binette",
         author_email="olivier.binette@gmail.com",
         description="Efficient string comparison functions.",
@@ -24,6 +24,6 @@ if __name__ == "__main__":
         url="https://github.com/OlivierBinette/StringCompare",
         include_package_data=True,
         packages=["stringcompare"],
-        install_requires=["numpy", "scipy", "pandas", "igraph", "sklearn", "pybind11"],
+        install_requires=["numpy", "pybind11"],
         cmdclass={"build_ext": build_ext},
     )

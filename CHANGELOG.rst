@@ -10,7 +10,6 @@ Unreleased
 * Update pybind11 package documentation
 * Improve memory efficiency of Levenshtein and LCSDistance classes.
 
-
 0.0.1 (2022-01-18)
 ------------------
 

@@ -52,6 +52,14 @@ stringcompare.distance.levenshtein module
    :undoc-members:
    :show-inheritance:
 
+stringcompare.distance.monge\_elkan module
+------------------------------------------
+
+.. automodule:: stringcompare.distance.monge_elkan
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
