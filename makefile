@@ -1,4 +1,4 @@
-.PHONY: all docs
+.PHONY: all docs dockertest
 
 all: install README.md docs
 
@@ -11,6 +11,9 @@ install: $(shell find stringcompare -type f) setup.py pyproject.toml
 README.md: $(shell find stringcompare -type f) README.ipynb
 	jupyter nbconvert --execute --to markdown README.ipynb
 	m2r README.md
+
+dockertest: dockertest.sh
+	sudo docker run -v $$(pwd):/stringcompare -w /stringcompare python:3.7.9 bash dockertest.sh
 
 clean:
 	find . -name "*.so" -delete
