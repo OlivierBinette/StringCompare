@@ -46,6 +46,3 @@ class DeepparseAddressTagger(Tagger):
     def batch_tag(self, objs: List) -> List[Dict]:
         return [r.to_dict() for r in self.deepparse_handle(objs)]
 
-
-class LibpostalAddressTagger(Tagger):
-    pass
