@@ -9,6 +9,7 @@
 #include "jaro.hpp"
 #include "jarowinkler.hpp"
 #include "lcs.hpp"
+#include "characterdifference.hpp"
 
 PYBIND11_MODULE(_distance, m) {
 
@@ -162,5 +163,18 @@ Pairwise comparison between two lists.
     )
       .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
       .def("compare", &LCSDistance::compare);
+
+    py::class_<CharacterDifference, StringComparator>(m, "CharacterDifference",
+    R"""(
+    Character difference between two strings.
+
+    This is the number of characters differing between two strings. The distance may be normalized or returned as a similarity score instead.
+
+    :param normalize: Whether or not to normalize the result to be between 0 and 1. Defaults to True.
+    :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
+    )"""
+    )
+      .def(py::init<bool, bool>(), py::arg("normalize")=true, py::arg("similarity")=false)
+      .def("compare", &CharacterDifference::compare);
 
 }
