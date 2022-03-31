@@ -4,6 +4,14 @@ stringcompare.distance package
 Submodules
 ----------
 
+stringcompare.distance.characterdifference module
+-------------------------------------------------
+
+.. automodule:: stringcompare.distance.characterdifference
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 stringcompare.distance.comparator module
 ----------------------------------------
 
