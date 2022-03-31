@@ -24,7 +24,7 @@ public:
     this->similarity = similarity;
   }
 
-  int characterdifference(const string &s, const string &t) {
+  int commoncharacters(const string &s, const string &t) {
     string s1 = s;
     string s2 = t;
 
@@ -44,7 +44,7 @@ public:
       return similarity;
     }
 
-    int dist = characterdifference(s, t);
+    double dist = len - 2 * commoncharacters(s, t);
 
     if (similarity) {
       double sim = (len - dist) / 2.0;

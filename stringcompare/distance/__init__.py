@@ -6,6 +6,7 @@ from stringcompare.distance._distance import (
     Jaro,
     JaroWinkler,
     LCSDistance,
+    CharacterDifference,
 )
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "Jaro",
     "JaroWinkler",
     "LCSDistance",
+    "CharacterDifference",
 ]

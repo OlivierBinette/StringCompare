@@ -1,9 +1,13 @@
+from typing import Counter
 import numpy as np
 from .comparator import StringComparator
 
 
 def _character_difference(s, t):
-    return len(set(s).symmetric_difference(t))
+    s = Counter(s)
+    t = Counter(t)
+    
+    return sum(s.values()) + sum(t.values()) - 2 * sum((s&t).values())
 
 class CharacterDifference(StringComparator):
     def __init__(self, normalize=True, similarity=False):

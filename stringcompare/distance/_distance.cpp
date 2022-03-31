@@ -34,13 +34,13 @@ The current class structure, implemented in C++, is as follows::
    ├─► pairwise()
    │
    │StringComparator
-   └─┬───────────────
+   └─┬──────────────
      │
      │ Levenshtein
      ├────────────
      │
      │ DamerauLevenshtein
-     ├────────────────────
+     ├───────────────────
      │
      │ LCSDistance
      ├────────────
@@ -50,6 +50,9 @@ The current class structure, implemented in C++, is as follows::
      │
      │ JaroWinkler
      └────────────
+     │
+     │ CharacterDifference
+     └────────────────────
 
 .. seealso:: :class:`StringComparator` :class:`NumericComparator`
 )"""",
@@ -176,5 +179,4 @@ Pairwise comparison between two lists.
     )
       .def(py::init<bool, bool>(), py::arg("normalize")=true, py::arg("similarity")=false)
       .def("compare", &CharacterDifference::compare);
-
 }
