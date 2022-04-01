@@ -1,12 +1,7 @@
 from abc import ABC, abstractmethod
-from .preprocessor import Preprocessor
-
 
 class Tokenizer(ABC):
-    """Abstract base class for string tokenization.
-
-    The tokenize() method returns a Container with tokens extracted from a given string.
-    """
+    """String tokenization interface."""
 
     def __call__(self, sentence):
         return self.tokenize(sentence)
@@ -32,20 +27,10 @@ class WhitespaceTokenizer(DelimTokenizer):
         super().__init__(delim=" ")
 
 
-class NGram(Tokenizer):
-    def __init__(self, n, preprocessor=None):
-        self._validate_args(n, preprocessor)
+class NGramTokenizer(Tokenizer):
+    def __init__(self, n):
 
         self.n = n
-        self.level = "character"
-        self.preprocessor = preprocessor
-
-    def _validate_args(n, preprocessor):
-        assert isinstance(n, int)
-        assert isinstance(preprocessor, Preprocessor) or preprocessor is None
 
     def tokenize(self, sentence):
-        if self.preprocessor:
-            sentence = self.preprocessor(sentence)
-
-        return zip(sentence[i:] for i in range(self.n))
+        return zip(*(sentence[i:] for i in range(self.n)))
