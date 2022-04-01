@@ -48,4 +48,4 @@ class NGram(Tokenizer):
         if self.preprocessor:
             sentence = self.preprocessor(sentence)
 
-        return list(zip(sentence[i:] for i in range(self.n)))
+        return zip(sentence[i:] for i in range(self.n))
