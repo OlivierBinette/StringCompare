@@ -4,6 +4,14 @@ tests package
 Submodules
 ----------
 
+tests.test\_characterdifference module
+--------------------------------------
+
+.. automodule:: tests.test_characterdifference
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 tests.test\_damerau\_levenshtein module
 ---------------------------------------
 

@@ -1,7 +1,4 @@
 from abc import ABC, abstractmethod
-from collections.abc import Collection
-from typing import List
-import itertools
 from .preprocessor import Preprocessor
 
 
@@ -11,22 +8,22 @@ class Tokenizer(ABC):
     The tokenize() method returns a Container with tokens extracted from a given string.
     """
 
-    def __call__(self, sentence: str) -> Collection:
+    def __call__(self, sentence):
         return self.tokenize(sentence)
 
     @abstractmethod
-    def tokenize(self, sentence: str) -> Collection:
+    def tokenize(self, sentence):
         pass
 
-    def batch_tokenize(self, sentences: List[str]) -> List[Collection]:
+    def batch_tokenize(self, sentences):
         return [self.tokenize(s) for s in sentences]
 
 
 class DelimTokenizer(Tokenizer):
-    def __init__(self, delim: str = " "):
+    def __init__(self, delim = " "):
         self.delim = delim
 
-    def tokenize(self, sentence: str) -> Collection:
+    def tokenize(self, sentence):
         return sentence.split(self.delim)
 
 
@@ -47,7 +44,7 @@ class NGram(Tokenizer):
         assert isinstance(n, int)
         assert isinstance(preprocessor, Preprocessor) or preprocessor is None
 
-    def tokenize(self, sentence: str) -> Collection:
+    def tokenize(self, sentence):
         if self.preprocessor:
             sentence = self.preprocessor(sentence)
 
