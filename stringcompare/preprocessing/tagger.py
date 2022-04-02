@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Dict, List
 
 
 class Tagger(ABC):
@@ -13,10 +12,10 @@ class Tagger(ABC):
         return self.tag(obj)
 
     @abstractmethod
-    def tag(self, obj) -> Dict:
+    def tag(self, obj):
         pass
 
-    def batch_tag(self, objs: List) -> List[Dict]:
+    def batch_tag(self, objs):
         return [self.tag(obj) for obj in objs]
 
 
@@ -39,9 +38,9 @@ class DeepparseAddressTagger(Tagger):
         ), "deepparse_handle should be an AddressParser instance."
         self.deepparse_handle = deepparse_handle
 
-    def tag(self, obj) -> Dict:
+    def tag(self, obj):
         return self.deepparse_handle(obj).to_dict()
 
-    def batch_tag(self, objs: List) -> List[Dict]:
+    def batch_tag(self, objs):
         return [r.to_dict() for r in self.deepparse_handle(objs)]
 
