@@ -22,6 +22,7 @@ clean:
 	rm -rf stringcompare.egg-info
 	rm -rf .pytest_cache
 	rm -rf dist
+	rm -rf build/
 
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
@@ -31,7 +32,7 @@ BUILDDIR      = .
 
 docs:
 	rm -rf docs
-	sphinx-apidoc -f -o documentation/source . .
+	sphinx-apidoc -M -f -o documentation/source stringcompare stringcompare stringcompare/distance/
 	m2r README.md
 	mv README.rst documentation/README.rst
 	$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

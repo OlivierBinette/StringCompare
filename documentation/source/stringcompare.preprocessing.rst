@@ -1,16 +1,13 @@
 stringcompare.preprocessing package
 ===================================
 
-Submodules
-----------
-
-stringcompare.preprocessing.preprocessor module
------------------------------------------------
-
-.. automodule:: stringcompare.preprocessing.preprocessor
+.. automodule:: stringcompare.preprocessing
    :members:
    :undoc-members:
    :show-inheritance:
+
+Submodules
+----------
 
 stringcompare.preprocessing.tagger module
 -----------------------------------------
@@ -24,14 +21,6 @@ stringcompare.preprocessing.tokenizer module
 --------------------------------------------
 
 .. automodule:: stringcompare.preprocessing.tokenizer
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: stringcompare.preprocessing
    :members:
    :undoc-members:
    :show-inheritance:

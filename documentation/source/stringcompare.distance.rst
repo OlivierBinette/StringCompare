@@ -1,6 +1,11 @@
 stringcompare.distance package
 ==============================
 
+.. automodule:: stringcompare.distance
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -64,14 +69,6 @@ stringcompare.distance.monge\_elkan module
 ------------------------------------------
 
 .. automodule:: stringcompare.distance.monge_elkan
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: stringcompare.distance
    :members:
    :undoc-members:
    :show-inheritance:
