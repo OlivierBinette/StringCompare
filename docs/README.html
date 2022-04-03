@@ -43,7 +43,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#project-roadmap">Project Roadmap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#benchmark">Benchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark">Benchmark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#performance-notes">Performance notes</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#known-bugs">Known Bugs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#contribute">Contribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
@@ -87,13 +90,14 @@
 <section id="stringcompare-efficient-string-comparison-functions">
 <h1>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions<a class="headerlink" href="#stringcompare-efficient-string-comparison-functions" title="Permalink to this headline"></a></h1>
 <p><strong>StringCompare</strong> is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent <a class="reference external" href="https://github.com/ngmarchant/comparator">*comparator*</a> and <a class="reference external" href="https://github.com/markvanderloo/stringdist">*stringdist*</a> R packages, and from the equally excellent <a class="reference external" href="https://github.com/anhaidgroup/py_stringmatching">*py_stringmatching*</a>, <a class="reference external" href="https://github.com/jamesturk/jellyfish">*jellyfish*</a>, and <a class="reference external" href="https://github.com/life4/textdistance">*textdistance*</a> Python packages.</p>
-<p>The key feature of <strong>StringCompare</strong> is a focus on speed and extensibility through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
+<p>The key feature of <strong>StringCompare</strong> is a focus on speed, extensibility and maintainability through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
 <p>The <a class="reference external" href="https://olivierbinette.github.io/StringCompare/source/stringcompare.html">complete API documentation</a> is available on the project website <a class="reference external" href="https://olivierbinette.github.io/StringCompare">olivierbinette.github.io/StringCompare</a>.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
-<p>Install the latest release version from github using the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">setuptools</span> <span class="n">wheel</span> <span class="n">pybind11</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">OlivierBinette</span><span class="o">/</span><span class="n">StringCompare</span><span class="o">.</span><span class="n">git</span><span class="nd">@release</span>
+<p>Install the latest version from github using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install setuptools wheel pybind11
+git clone https://github.com/OlivierBinette/StringCompare.git
+pip install -e ./StringCompare
 </pre></div>
 </div>
 </section>
@@ -163,23 +167,20 @@
 </section>
 <section id="benchmark">
 <h2>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline"></a></h2>
-<p>Comparison of the Jaro-Winkler implementation speed for different Python packages, when comparing the strings “Olivier Binette” and “Oilvier Benet”:</p>
+<p>Comparison of the Damerau-Levenshtein implementation speed for different Python packages, when comparing the strings “Olivier Binette” and “Oilvier Benet”:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
 <span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="c1"># Comparison functions</span>
-<span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
-<span class="n">cmp</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">jaro_winkler</span>
-<span class="kn">from</span> <span class="nn">py_stringmatching</span> <span class="kn">import</span> <span class="n">JaroWinkler</span>
-<span class="n">jw</span> <span class="o">=</span> <span class="n">JaroWinkler</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">jaro_winkler</span> <span class="k">as</span> <span class="n">td_jaro_winkler</span>
+<span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">DamerauLevenshtein</span>
+<span class="n">cmp</span> <span class="o">=</span> <span class="n">DamerauLevenshtein</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">damerau_levenshtein_distance</span>
+<span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">damerau_levenshtein</span>
 
 <span class="n">functions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;StringCompare&quot;</span><span class="p">:</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">,</span>
-    <span class="s2">&quot;jellyfish&quot;</span><span class="p">:</span> <span class="n">jaro_winkler</span><span class="p">,</span>
-    <span class="s2">&quot;py_stringmatching&quot;</span><span class="p">:</span> <span class="n">jw</span><span class="o">.</span><span class="n">get_sim_score</span><span class="p">,</span>
-    <span class="s2">&quot;textdistance&quot;</span><span class="p">:</span> <span class="n">td_jaro_winkler</span>
+    <span class="s2">&quot;jellyfish&quot;</span><span class="p">:</span> <span class="n">damerau_levenshtein_distance</span><span class="p">,</span>
+    <span class="s2">&quot;textdistance&quot;</span><span class="p">:</span> <span class="n">damerau_levenshtein</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
@@ -189,25 +190,40 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Package&quot;</span><span class="p">,</span> <span class="s2">&quot;avg runtime (ns)&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>              <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
-<span class="o">-----------------</span>  <span class="o">------------------</span>
-<span class="n">StringCompare</span>                 <span class="mf">380.531</span>
-<span class="n">jellyfish</span>                    <span class="mf">1524.4</span>
-<span class="n">py_stringmatching</span>            <span class="mf">3209.6</span>
-<span class="n">textdistance</span>                 <span class="mf">3331.15</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>          <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+<span class="o">-------------</span>  <span class="o">------------------</span>
+<span class="n">StringCompare</span>             <span class="mf">733.214</span>
+<span class="n">jellyfish</span>                <span class="mf">1009.11</span>
+<span class="n">textdistance</span>             <span class="mf">4065.03</span>
 </pre></div>
 </div>
+<section id="performance-notes">
+<h3>Performance notes<a class="headerlink" href="#performance-notes" title="Permalink to this headline"></a></h3>
+<p>The use of pybind11 comes with a small performance overhead. We could be faster if we directly interfaced with CPython.</p>
+<p>However, the use of pybind11 allows the library to be easily extensible and maintainable. The C++ implementation has little to worry about Python, excepted for the use of a pybind11 numpy wrapper in some places. Pybind11 takes care of the details of exposing the C++ API to Python.</p>
+</section>
 </section>
 <section id="known-bugs">
 <h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline"></a></h2>
-<ul>
-<li><p><em>pybind11</em> has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code> is 11, then use the following commands to configure your environment before installing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="mi">9</span> <span class="n">g</span><span class="o">++-</span><span class="mi">9</span>
-<span class="n">export</span> <span class="n">CC</span><span class="o">=</span><span class="n">gcc</span><span class="o">-</span><span class="mi">9</span> <span class="o">&amp;&amp;</span> <span class="n">export</span> <span class="n">CXX</span><span class="o">=</span><span class="n">g</span><span class="o">++-</span><span class="mi">9</span>
+<p><em>pybind11</em> has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code> is 11, then use the following commands to configure your environment before (re)installing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install g++-9 gcc-9
+<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9
 </pre></div>
 </div>
-</li>
-</ul>
+<p>Then reinstall using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean
+pip install --force-reinstall -e StringCompare/
+</pre></div>
+</div>
+<p>If this is unsuccessful, you might want to use <strong>StringCompare</strong> within a <a class="reference external" href="https://www.docker.com/">Docker</a> container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install <strong>StringCompare</strong> as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run -it python:3.7.9 bash
+git clone https://github.com/OlivierBinette/StringCompare.git
+pip install setuptools pybind11
+pip install -e ./StringCompare
+python
+&gt;&gt;&gt; import stringcompare
+</pre></div>
+</div>
 <p>Please report installation issues <a class="reference external" href="https://github.com/OlivierBinette/StringCompare/issues">here</a>.</p>
 </section>
 <section id="contribute">

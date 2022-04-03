@@ -38,20 +38,20 @@
 
 **StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent `\ *comparator* <https://github.com/ngmarchant/comparator>`_ and `\ *stringdist* <https://github.com/markvanderloo/stringdist>`_ R packages, and from the equally excellent `\ *py_stringmatching* <https://github.com/anhaidgroup/py_stringmatching>`_\ , `\ *jellyfish* <https://github.com/jamesturk/jellyfish>`_\ , and `\ *textdistance* <https://github.com/life4/textdistance>`_ Python packages.
 
-The key feature of **StringCompare** is a focus on speed and extensibility through its `\ *pybind11*  <https://github.com/pybind/pybind11>`_ C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+The key feature of **StringCompare** is a focus on speed, extensibility and maintainability through its `\ *pybind11*  <https://github.com/pybind/pybind11>`_ C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
 
 The `complete API documentation <https://olivierbinette.github.io/StringCompare/source/stringcompare.html>`_ is available on the project website `olivierbinette.github.io/StringCompare <https://olivierbinette.github.io/StringCompare>`_.
 
 Installation
 ------------
 
-Install the latest release version from github using the following command:
+Install the latest version from github using the following commands:
 
-.. code-block::
+.. code-block:: bash
 
-   pip install setuptools wheel pybind11
-   pip install git+https://github.com/OlivierBinette/StringCompare.git@release
-
+       pip install setuptools wheel pybind11
+       git clone https://github.com/OlivierBinette/StringCompare.git
+       pip install -e ./StringCompare
 
 Project Roadmap
 ---------------
@@ -128,7 +128,7 @@ and the ``pairwise()`` function for pairwise comparisons.
 Benchmark
 ---------
 
-Comparison of the Jaro-Winkler implementation speed for different Python packages, when comparing the strings "Olivier Binette" and "Oilvier Benet":
+Comparison of the Damerau-Levenshtein implementation speed for different Python packages, when comparing the strings "Olivier Binette" and "Oilvier Benet":
 
 .. code-block:: python
 
@@ -136,18 +136,15 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
    from tabulate import tabulate
 
    # Comparison functions
-   from stringcompare import JaroWinkler
-   cmp = JaroWinkler()
-   from jellyfish import jaro_winkler
-   from py_stringmatching import JaroWinkler
-   jw = JaroWinkler()
-   from textdistance import jaro_winkler as td_jaro_winkler
+   from stringcompare import DamerauLevenshtein
+   cmp = DamerauLevenshtein()
+   from jellyfish import damerau_levenshtein_distance
+   from textdistance import damerau_levenshtein
 
    functions = {
        "StringCompare": cmp.compare,
-       "jellyfish": jaro_winkler,
-       "py_stringmatching": jw.get_sim_score,
-       "textdistance": td_jaro_winkler
+       "jellyfish": damerau_levenshtein_distance,
+       "textdistance": damerau_levenshtein,
    }
 
    table = [
@@ -158,26 +155,48 @@ Comparison of the Jaro-Winkler implementation speed for different Python package
 
 .. code-block::
 
-   Package              avg runtime (ns)
-   -----------------  ------------------
-   StringCompare                 380.531
-   jellyfish                    1524.4
-   py_stringmatching            3209.6
-   textdistance                 3331.15
+   Package          avg runtime (ns)
+   -------------  ------------------
+   StringCompare             733.214
+   jellyfish                1009.11
+   textdistance             4065.03
 
 
+
+Performance notes
+^^^^^^^^^^^^^^^^^
+
+The use of pybind11 comes with a small performance overhead. We could be faster if we directly interfaced with CPython.
+
+However, the use of pybind11 allows the library to be easily extensible and maintainable. The C++ implementation has little to worry about Python, excepted for the use of a pybind11 numpy wrapper in some places. Pybind11 takes care of the details of exposing the C++ API to Python.
 
 Known Bugs
 ----------
 
+*pybind11* has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and ``gcc --version`` is 11, then use the following commands to configure your environment before (re)installing:
 
-* 
-  *pybind11* has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and ``gcc --version`` is 11, then use the following commands to configure your environment before installing:
+.. code-block:: bash
 
-  .. code-block::
+           sudo apt install g++-9 gcc-9
+           export CC=gcc-9 CXX=g++-9
 
-       sudo apt-get install gcc-9 g++-9
-       export CC=gcc-9 && export CXX=g++-9
+Then reinstall using:
+
+.. code-block:: bash
+
+           make clean
+           pip install --force-reinstall -e StringCompare/
+
+If this is unsuccessful, you might want to use **StringCompare** within a `Docker <https://www.docker.com/>`_ container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install **StringCompare** as follows:
+
+.. code-block:: bash
+
+           sudo docker run -it python:3.7.9 bash
+           git clone https://github.com/OlivierBinette/StringCompare.git
+           pip install setuptools pybind11
+           pip install -e ./StringCompare
+           python
+           >>> import stringcompare
 
 Please report installation issues `here <https://github.com/OlivierBinette/StringCompare/issues>`_.
 
