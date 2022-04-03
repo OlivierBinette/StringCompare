@@ -1,7 +1,0 @@
-include LICENSE
-
-recursive-include tests *
-recursive-exclude * __pycache__
-recursive-exclude * *.py[co]
-
-recursive-include documentation *.rst conf.py Makefile make.bat *.jpg *.png *.gif
