@@ -94,10 +94,8 @@
 <p>The <a class="reference external" href="https://olivierbinette.github.io/StringCompare/source/stringcompare.html">complete API documentation</a> is available on the project website <a class="reference external" href="https://olivierbinette.github.io/StringCompare">olivierbinette.github.io/StringCompare</a>.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
-<p>Install the latest version from github using the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install setuptools wheel pybind11
-git clone https://github.com/OlivierBinette/StringCompare.git
-pip install -e ./StringCompare
+<p>Install the development version from github using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/OlivierBinette/StringCompare.git
 </pre></div>
 </div>
 </section>
@@ -192,9 +190,9 @@ pip install -e ./StringCompare
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>          <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 <span class="o">-------------</span>  <span class="o">------------------</span>
-<span class="n">StringCompare</span>             <span class="mf">733.214</span>
-<span class="n">jellyfish</span>                <span class="mf">1009.11</span>
-<span class="n">textdistance</span>             <span class="mf">4065.03</span>
+<span class="n">StringCompare</span>              <span class="mf">698.56</span>
+<span class="n">jellyfish</span>                  <span class="mf">956.46</span>
+<span class="n">textdistance</span>              <span class="mf">3845.14</span>
 </pre></div>
 </div>
 <section id="performance-notes">
@@ -210,16 +208,9 @@ pip install -e ./StringCompare
 <span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9
 </pre></div>
 </div>
-<p>Then reinstall using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean
-pip install --force-reinstall -e StringCompare/
-</pre></div>
-</div>
 <p>If this is unsuccessful, you might want to use <strong>StringCompare</strong> within a <a class="reference external" href="https://www.docker.com/">Docker</a> container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install <strong>StringCompare</strong> as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run -it python:3.7.9 bash
-git clone https://github.com/OlivierBinette/StringCompare.git
-pip install setuptools pybind11
-pip install -e ./StringCompare
+pip install git+https://github.com/OlivierBinette/StringCompare.git
 python
 &gt;&gt;&gt; import stringcompare
 </pre></div>

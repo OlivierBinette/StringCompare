@@ -17,12 +17,10 @@ The [complete API documentation](https://olivierbinette.github.io/StringCompare/
 
 ## Installation
 
-Install the latest version from github using the following commands:
+Install the development version from github using the following commands:
 
 ```bash
-    pip install setuptools wheel pybind11
-    git clone https://github.com/OlivierBinette/StringCompare.git
-    pip install -e ./StringCompare
+    pip install git+https://github.com/OlivierBinette/StringCompare.git
 ```
 
 ## Project Roadmap
@@ -117,9 +115,9 @@ print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 
     Package          avg runtime (ns)
     -------------  ------------------
-    StringCompare             733.214
-    jellyfish                1009.11
-    textdistance             4065.03
+    StringCompare              698.56
+    jellyfish                  956.46
+    textdistance              3845.14
 
 
 ### Performance notes
@@ -135,17 +133,10 @@ However, the use of pybind11 allows the library to be easily extensible and main
         sudo apt install g++-9 gcc-9
         export CC=gcc-9 CXX=g++-9
 ```
-Then reinstall using:
-```bash
-        make clean
-        pip install --force-reinstall -e StringCompare/
-```
 If this is unsuccessful, you might want to use **StringCompare** within a [Docker](https://www.docker.com/) container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install **StringCompare** as follows:
 ```bash
         sudo docker run -it python:3.7.9 bash
-        git clone https://github.com/OlivierBinette/StringCompare.git
-        pip install setuptools pybind11
-        pip install -e ./StringCompare
+        pip install git+https://github.com/OlivierBinette/StringCompare.git
         python
         >>> import stringcompare
 ```
