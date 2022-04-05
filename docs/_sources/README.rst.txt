@@ -155,9 +155,9 @@ Comparison of the Damerau-Levenshtein implementation speed for different Python 
 
    Package          avg runtime (ns)
    -------------  ------------------
-   StringCompare             668.583
-   jellyfish                 930.718
-   textdistance             3905.6
+   StringCompare             713.276
+   jellyfish                 989.707
+   textdistance             4022.5
 
 
 

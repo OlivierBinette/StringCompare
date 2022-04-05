@@ -134,6 +134,9 @@
    │
    │ CharacterDifference
    └────────────────────
+   │
+   │ Hamming
+   └────────
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -248,6 +251,27 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="stringcompare.DelimTokenizer.tokenize">
 <span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#DelimTokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.DelimTokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.Hamming">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.</span></span><span class="sig-name descname"><span class="pre">Hamming</span></span><a class="headerlink" href="#stringcompare.Hamming" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="stringcompare.distance.html#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Hamming distance between two strings.</p>
+<p>This is the number of differences between corresponding characters in the strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.Hamming.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="stringcompare.distance.html#stringcompare.distance.Hamming" title="stringcompare.distance._distance.Hamming"><span class="pre">stringcompare.distance._distance.Hamming</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.Hamming.compare" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -10,6 +10,7 @@
 #include "jarowinkler.hpp"
 #include "lcs.hpp"
 #include "characterdifference.hpp"
+#include "hamming.hpp"
 
 PYBIND11_MODULE(_distance, m) {
 
@@ -53,6 +54,9 @@ The current class structure, implemented in C++, is as follows::
      │
      │ CharacterDifference
      └────────────────────
+     │
+     │ Hamming
+     └────────
 
 .. seealso:: :class:`StringComparator` :class:`NumericComparator`
 )"""",
@@ -179,4 +183,17 @@ Pairwise comparison between two lists.
     )
       .def(py::init<bool, bool>(), py::arg("normalize")=true, py::arg("similarity")=false)
       .def("compare", &CharacterDifference::compare);
+    
+    py::class_<Hamming, StringComparator>(m, "Hamming",
+    R"""(
+    Hamming distance between two strings.
+
+    This is the number of differences between corresponding characters in the strings.
+
+    :param normalize: Whether or not to normalize the result to be between 0 and 1. Defaults to True.
+    :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
+    )"""
+    )
+      .def(py::init<bool, bool>(), py::arg("normalize")=true, py::arg("similarity")=false)
+      .def("compare", &Hamming::compare);
 }

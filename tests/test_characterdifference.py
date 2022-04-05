@@ -115,7 +115,7 @@ def test_CharacterDifference_dmat_size():
 
 
 def test_PyCharacterDifference_FF():
-    cmp = CharacterDifference(normalize=False, similarity=False)
+    cmp = PyCharacterDifference(normalize=False, similarity=False)
 
     assert cmp.compare("", "") == 0
 
