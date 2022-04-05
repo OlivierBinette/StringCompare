@@ -45,11 +45,11 @@ The `complete API documentation <https://olivierbinette.github.io/StringCompare/
 Installation
 ------------
 
-Install the development version from github using the following commands:
+Install the released version from github using the following commands:
 
 .. code-block:: bash
 
-       pip install git+https://github.com/OlivierBinette/StringCompare.git
+       pip install git+https://github.com/OlivierBinette/StringCompare.git@release
 
 Project Roadmap
 ---------------
@@ -155,9 +155,9 @@ Comparison of the Damerau-Levenshtein implementation speed for different Python 
 
    Package          avg runtime (ns)
    -------------  ------------------
-   StringCompare             703.727
-   jellyfish                 978.144
-   textdistance             4139.59
+   StringCompare             697.834
+   jellyfish                 974.363
+   textdistance             3982.73
 
 
 
