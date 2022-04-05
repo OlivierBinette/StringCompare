@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stringcompare.distance package &mdash; stringcompare  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> stringcompare
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stringcompare.html">stringcompare package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AUTHORS.html">Credits</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">stringcompare</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>stringcompare.distance package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/stringcompare.distance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-stringcompare.distance">
+<span id="stringcompare-distance-package"></span><h1>stringcompare.distance package<a class="headerlink" href="#module-stringcompare.distance" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.CharacterDifference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">CharacterDifference</span></span><a class="headerlink" href="#stringcompare.distance.CharacterDifference" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Character difference between two strings.</p>
+<p>This is the number of characters differing between two strings. The distance may be normalized or returned as a similarity score instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.CharacterDifference.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.CharacterDifference" title="stringcompare.distance._distance.CharacterDifference"><span class="pre">stringcompare.distance._distance.CharacterDifference</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.CharacterDifference.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.Comparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">Comparator</span></span><a class="headerlink" href="#stringcompare.distance.Comparator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<p>Abstract base class for pybind11 comparator objects.</p>
+<p>Provides the <a class="reference internal" href="stringcompare.html#stringcompare.Comparator.compare" title="stringcompare.Comparator.compare"><code class="xref py py-func docutils literal notranslate"><span class="pre">compare()</span></code></a> function for comparison of two elements, the <a class="reference internal" href="stringcompare.html#stringcompare.Comparator.elementwise" title="stringcompare.Comparator.elementwise"><code class="xref py py-func docutils literal notranslate"><span class="pre">elementwise()</span></code></a> function for elementwise comparison between two lists, and the <a class="reference internal" href="stringcompare.html#stringcompare.Comparator.pairwise" title="stringcompare.Comparator.pairwise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pairwise()</span></code></a> function for pairwise comparison between elements of two lists.</p>
+<p>Parameters for the comparison functions (e.g. to return a distance or similarity, whether or not to normalize, weights, etc) should be provided to the constructor.</p>
+<p>The current class structure, implemented in C++, is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Comparator
+─┬────────
+ ├─► compare()
+ │
+ ├─► elementwise()
+ │
+ ├─► pairwise()
+ │
+ │StringComparator
+ └─┬──────────────
+   │
+   │ Levenshtein
+   ├────────────
+   │
+   │ DamerauLevenshtein
+   ├───────────────────
+   │
+   │ LCSDistance
+   ├────────────
+   │
+   │ Jaro
+   ├─────
+   │
+   │ JaroWinkler
+   └────────────
+   │
+   │ CharacterDifference
+   └────────────────────
+   │
+   │ Hamming
+   └────────
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringComparator</span></code></a> <code class="xref py py-class docutils literal notranslate"><span class="pre">NumericComparator</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Comparator.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Comparator" title="stringcompare.distance._distance.Comparator"><span class="pre">stringcompare.distance._distance.Comparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.Comparator.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg0</strong> – Object to compare from.</p></li>
+<li><p><strong>arg1</strong> – Object to compare to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numeric value of the comparison.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Comparator.elementwise">
+<span class="sig-name descname"><span class="pre">elementwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Comparator" title="stringcompare.distance._distance.Comparator"><span class="pre">stringcompare.distance._distance.Comparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.distance.Comparator.elementwise" title="Permalink to this definition"></a></dt>
+<dd><p>Elementwise comparison between two lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg0</strong> – List of objects to compare from.</p></li>
+<li><p><strong>arg1</strong> – List of objects to compare to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Numpy array containing comparison values.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The two lists <code class="code docutils literal notranslate"><span class="pre">arg0</span></code> and <code class="code docutils literal notranslate"><span class="pre">arg1</span></code> should be of the same length.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Comparator.pairwise">
+<span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Comparator" title="stringcompare.distance._distance.Comparator"><span class="pre">stringcompare.distance._distance.Comparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.distance.Comparator.pairwise" title="Permalink to this definition"></a></dt>
+<dd><p>Pairwise comparison between two lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg0</strong> – List of objects to compare from.</p></li>
+<li><p><strong>arg1</strong> – List of objects to compare to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2x2 numpy array containing comparison values, where each row corresponds to an element of <code class="code docutils literal notranslate"><span class="pre">arg0</span></code> and each column corresponds to an element of <code class="code docutils literal notranslate"><span class="pre">arg1</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.DamerauLevenshtein">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">DamerauLevenshtein</span></span><a class="headerlink" href="#stringcompare.distance.DamerauLevenshtein" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Damerau-Levenshtein distance</p>
+<p>This is the minimum number of insertions, deletions, substitutions or transpositions required to change one word into the other. The distance may be normalized or returned as a similarity score instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+<li><p><strong>dmat_size</strong> – Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.</p></li>
+<li><p><strong>check_bounds</strong> – Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as <code class="code docutils literal notranslate"><span class="pre">dmat_size</span></code> is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.DamerauLevenshtein.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.DamerauLevenshtein" title="stringcompare.distance._distance.DamerauLevenshtein"><span class="pre">stringcompare.distance._distance.DamerauLevenshtein</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.DamerauLevenshtein.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.Hamming">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">Hamming</span></span><a class="headerlink" href="#stringcompare.distance.Hamming" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Hamming distance between two strings.</p>
+<p>This is the number of differences between corresponding characters in the strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Hamming.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Hamming" title="stringcompare.distance._distance.Hamming"><span class="pre">stringcompare.distance._distance.Hamming</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.Hamming.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.Jaro">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">Jaro</span></span><a class="headerlink" href="#stringcompare.distance.Jaro" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Jaro distance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Jaro.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Jaro" title="stringcompare.distance._distance.Jaro"><span class="pre">stringcompare.distance._distance.Jaro</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.Jaro.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.JaroWinkler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">JaroWinkler</span></span><a class="headerlink" href="#stringcompare.distance.JaroWinkler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Jaro-Winkler distance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.JaroWinkler.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.JaroWinkler" title="stringcompare.distance._distance.JaroWinkler"><span class="pre">stringcompare.distance._distance.JaroWinkler</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.JaroWinkler.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.LCSDistance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">LCSDistance</span></span><a class="headerlink" href="#stringcompare.distance.LCSDistance" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Longest common subsequence (LCS) distance</p>
+<p>This is the minimum number of insertions or deletions required to change one word into the other. The distance may be normalized or returned as a similarity score instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+<li><p><strong>dmat_size</strong> – Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.</p></li>
+<li><p><strong>check_bounds</strong> – Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as <code class="code docutils literal notranslate"><span class="pre">dmat_size</span></code> is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.LCSDistance.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.LCSDistance" title="stringcompare.distance._distance.LCSDistance"><span class="pre">stringcompare.distance._distance.LCSDistance</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.LCSDistance.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.Levenshtein">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">Levenshtein</span></span><a class="headerlink" href="#stringcompare.distance.Levenshtein" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance._distance.StringComparator</span></code></a></p>
+<p>Levenshtein distance</p>
+<p>This is defined as the “minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other” (see <a class="reference external" href="https://en.wikipedia.org/wiki/Levenshtein_distance">Wikipedia page</a>). The distance may be normalized or returned as a similarity score instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> – Whether or not to normalize the result to be between 0 and 1. Defaults to True.</p></li>
+<li><p><strong>similarity</strong> – Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.</p></li>
+<li><p><strong>dmat_size</strong> – Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.</p></li>
+<li><p><strong>check_bounds</strong> – Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as <code class="code docutils literal notranslate"><span class="pre">dmat_size</span></code> is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Examples</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">Levenshtein</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span> <span class="c1"># Same as lev.compare(&quot;Olivier&quot;, &quot;Oilvier&quot;)</span>
+<span class="go">0.25</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">similarity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="p">(</span><span class="s2">&quot;Olivier&quot;</span><span class="p">,</span> <span class="s2">&quot;Oilvier&quot;</span><span class="p">)</span>
+<span class="go">6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="o">.</span><span class="n">elementwise</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;ba&quot;</span><span class="p">])</span>
+<span class="go">array([0.5, 1.])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lev</span><span class="o">.</span><span class="n">pairwise</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;ba&quot;</span><span class="p">])</span>
+<span class="go">array([[0.5, 1. ],</span>
+<span class="go">       [1. , 1. ]])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.Levenshtein.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.Levenshtein" title="stringcompare.distance._distance.Levenshtein"><span class="pre">stringcompare.distance._distance.Levenshtein</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.Levenshtein.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.StringComparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.</span></span><span class="sig-name descname"><span class="pre">StringComparator</span></span><a class="headerlink" href="#stringcompare.distance.StringComparator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.StringComparator.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><span class="pre">stringcompare.distance._distance.StringComparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#stringcompare.distance.StringComparator.compare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.StringComparator.elementwise">
+<span class="sig-name descname"><span class="pre">elementwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><span class="pre">stringcompare.distance._distance.StringComparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.distance.StringComparator.elementwise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.StringComparator.pairwise">
+<span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stringcompare.distance.StringComparator" title="stringcompare.distance._distance.StringComparator"><span class="pre">stringcompare.distance._distance.StringComparator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#stringcompare.distance.StringComparator.pairwise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-stringcompare.distance.characterdifference">
+<span id="stringcompare-distance-characterdifference-module"></span><h2>stringcompare.distance.characterdifference module<a class="headerlink" href="#module-stringcompare.distance.characterdifference" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.characterdifference.CharacterDifference">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.characterdifference.</span></span><span class="sig-name descname"><span class="pre">CharacterDifference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/characterdifference.html#CharacterDifference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.characterdifference.CharacterDifference" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.characterdifference.CharacterDifference.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/characterdifference.html#CharacterDifference.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.characterdifference.CharacterDifference.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.comparator">
+<span id="stringcompare-distance-comparator-module"></span><h2>stringcompare.distance.comparator module<a class="headerlink" href="#module-stringcompare.distance.comparator" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.Comparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.comparator.</span></span><span class="sig-name descname"><span class="pre">Comparator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#Comparator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.Comparator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.T</span></code>]</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.Comparator.compare">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">stringcompare.distance.comparator.T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#Comparator.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.Comparator.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.Comparator.elementwise">
+<span class="sig-name descname"><span class="pre">elementwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">stringcompare.distance.comparator.T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">stringcompare.distance.comparator.T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#Comparator.elementwise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.Comparator.elementwise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.Comparator.pairwise">
+<span class="sig-name descname"><span class="pre">pairwise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">stringcompare.distance.comparator.T</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">stringcompare.distance.comparator.T</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#Comparator.pairwise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.Comparator.pairwise" title="Permalink to this definition"></a></dt>
+<dd><p>Pairwise comparisons between two lists.</p>
+<dl class="simple">
+<dt>l1: list</dt><dd><p>List of elements to compare from.</p>
+</dd>
+<dt>l2: list</dt><dd><p>List of elements to compare to.</p>
+</dd>
+</dl>
+<p>Matrix of dimension len(l1)xlen(l2), where each row corresponds to an
+element of l1 and each column corresponds to an element of l2.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.NumericComparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.comparator.</span></span><span class="sig-name descname"><span class="pre">NumericComparator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#NumericComparator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.NumericComparator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.Comparator" title="stringcompare.distance.comparator.Comparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.Comparator</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.comparator.StringComparator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.comparator.</span></span><span class="sig-name descname"><span class="pre">StringComparator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/comparator.html#StringComparator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.comparator.StringComparator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.Comparator" title="stringcompare.distance.comparator.Comparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.Comparator</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.dameraulevenshtein">
+<span id="stringcompare-distance-dameraulevenshtein-module"></span><h2>stringcompare.distance.dameraulevenshtein module<a class="headerlink" href="#module-stringcompare.distance.dameraulevenshtein" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.dameraulevenshtein.DamerauLevenshtein">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.dameraulevenshtein.</span></span><span class="sig-name descname"><span class="pre">DamerauLevenshtein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmat_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/dameraulevenshtein.html#DamerauLevenshtein"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.dameraulevenshtein.DamerauLevenshtein" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.dameraulevenshtein.DamerauLevenshtein.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/dameraulevenshtein.html#DamerauLevenshtein.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.dameraulevenshtein.DamerauLevenshtein.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringcompare.distance.dameraulevenshtein.dameraulevenshtein">
+<span class="sig-prename descclassname"><span class="pre">stringcompare.distance.dameraulevenshtein.</span></span><span class="sig-name descname"><span class="pre">dameraulevenshtein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/dameraulevenshtein.html#dameraulevenshtein"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.dameraulevenshtein.dameraulevenshtein" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.jaro">
+<span id="stringcompare-distance-jaro-module"></span><h2>stringcompare.distance.jaro module<a class="headerlink" href="#module-stringcompare.distance.jaro" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.jaro.Jaro">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.jaro.</span></span><span class="sig-name descname"><span class="pre">Jaro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jaro.html#Jaro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jaro.Jaro" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.jaro.Jaro.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jaro.html#Jaro.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jaro.Jaro.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringcompare.distance.jaro.jaro">
+<span class="sig-prename descclassname"><span class="pre">stringcompare.distance.jaro.</span></span><span class="sig-name descname"><span class="pre">jaro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jaro.html#jaro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jaro.jaro" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.jarowinkler">
+<span id="stringcompare-distance-jarowinkler-module"></span><h2>stringcompare.distance.jarowinkler module<a class="headerlink" href="#module-stringcompare.distance.jarowinkler" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.jarowinkler.JaroWinkler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.jarowinkler.</span></span><span class="sig-name descname"><span class="pre">JaroWinkler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jarowinkler.html#JaroWinkler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jarowinkler.JaroWinkler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.jarowinkler.JaroWinkler.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jarowinkler.html#JaroWinkler.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jarowinkler.JaroWinkler.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringcompare.distance.jarowinkler.jarowinkler">
+<span class="sig-prename descclassname"><span class="pre">stringcompare.distance.jarowinkler.</span></span><span class="sig-name descname"><span class="pre">jarowinkler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/jarowinkler.html#jarowinkler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.jarowinkler.jarowinkler" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.lcs">
+<span id="stringcompare-distance-lcs-module"></span><h2>stringcompare.distance.lcs module<a class="headerlink" href="#module-stringcompare.distance.lcs" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.lcs.LCSDistance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.lcs.</span></span><span class="sig-name descname"><span class="pre">LCSDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmat_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/lcs.html#LCSDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.lcs.LCSDistance" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.lcs.LCSDistance.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/lcs.html#LCSDistance.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.lcs.LCSDistance.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringcompare.distance.lcs.lcs">
+<span class="sig-prename descclassname"><span class="pre">stringcompare.distance.lcs.</span></span><span class="sig-name descname"><span class="pre">lcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/lcs.html#lcs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.lcs.lcs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.levenshtein">
+<span id="stringcompare-distance-levenshtein-module"></span><h2>stringcompare.distance.levenshtein module<a class="headerlink" href="#module-stringcompare.distance.levenshtein" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.levenshtein.Levenshtein">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.levenshtein.</span></span><span class="sig-name descname"><span class="pre">Levenshtein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmat_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/levenshtein.html#Levenshtein"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.levenshtein.Levenshtein" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.levenshtein.Levenshtein.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/levenshtein.html#Levenshtein.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.levenshtein.Levenshtein.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stringcompare.distance.levenshtein.levenshtein">
+<span class="sig-prename descclassname"><span class="pre">stringcompare.distance.levenshtein.</span></span><span class="sig-name descname"><span class="pre">levenshtein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/levenshtein.html#levenshtein"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.levenshtein.levenshtein" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-stringcompare.distance.monge_elkan">
+<span id="stringcompare-distance-monge-elkan-module"></span><h2>stringcompare.distance.monge_elkan module<a class="headerlink" href="#module-stringcompare.distance.monge_elkan" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.distance.monge_elkan.MongeElkan">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.distance.monge_elkan.</span></span><span class="sig-name descname"><span class="pre">MongeElkan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comparator:</span> <span class="pre">stringcompare.distance.comparator.StringComparator</span> <span class="pre">=</span> <span class="pre">&lt;stringcompare.distance.levenshtein.Levenshtein</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer:</span> <span class="pre">stringcompare.preprocessing.tokenizer.Tokenizer</span> <span class="pre">=</span> <span class="pre">&lt;stringcompare.preprocessing.tokenizer.WhitespaceTokenizer</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetrize=False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/monge_elkan.html#MongeElkan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.monge_elkan.MongeElkan" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.distance.comparator.StringComparator" title="stringcompare.distance.comparator.StringComparator"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.distance.comparator.StringComparator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.monge_elkan.MongeElkan.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/monge_elkan.html#MongeElkan.compare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.monge_elkan.MongeElkan.compare" title="Permalink to this definition"></a></dt>
+<dd><p>Comparison between two elements.</p>
+<dl class="simple">
+<dt>s:</dt><dd><p>element to compare from.</p>
+</dd>
+<dt>t:</dt><dd><p>element to compare to.</p>
+</dd>
+</dl>
+<p>Number indicating similarity level between the two elements. This is not necessarily normalized or symmetric.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.distance.monge_elkan.MongeElkan.monge_elkan">
+<span class="sig-name descname"><span class="pre">monge_elkan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/distance/monge_elkan.html#MongeElkan.monge_elkan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.distance.monge_elkan.MongeElkan.monge_elkan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Olivier Binette.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

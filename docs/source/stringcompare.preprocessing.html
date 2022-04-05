@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stringcompare.preprocessing package &mdash; stringcompare  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../contributing.html" />
+    <link rel="prev" title="stringcompare package" href="stringcompare.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> stringcompare
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Documentation contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="stringcompare.html">stringcompare package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="stringcompare.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">stringcompare.preprocessing package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-stringcompare.preprocessing.tagger">stringcompare.preprocessing.tagger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-stringcompare.preprocessing.tokenizer">stringcompare.preprocessing.tokenizer module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AUTHORS.html">Credits</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">stringcompare</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="stringcompare.html">stringcompare package</a> &raquo;</li>
+      <li>stringcompare.preprocessing package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/stringcompare.preprocessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-stringcompare.preprocessing">
+<span id="stringcompare-preprocessing-package"></span><h1>stringcompare.preprocessing package<a class="headerlink" href="#module-stringcompare.preprocessing" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DeepparseAddressTagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">DeepparseAddressTagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deepparse_handle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.DeepparseAddressTagger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tagger.Tagger" title="stringcompare.preprocessing.tagger.Tagger"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tagger.Tagger</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DeepparseAddressTagger.LABELS">
+<span class="sig-name descname"><span class="pre">LABELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['StreetNumber',</span> <span class="pre">'StreetName',</span> <span class="pre">'Unit',</span> <span class="pre">'Municipality',</span> <span class="pre">'Province',</span> <span class="pre">'PostalCode',</span> <span class="pre">'Orientation',</span> <span class="pre">'GeneralDelivery']</span></em><a class="headerlink" href="#stringcompare.preprocessing.DeepparseAddressTagger.LABELS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DeepparseAddressTagger.batch_tag">
+<span class="sig-name descname"><span class="pre">batch_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger.batch_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.DeepparseAddressTagger.batch_tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DeepparseAddressTagger.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.DeepparseAddressTagger.tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DelimTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">DelimTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#DelimTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.DelimTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.Tokenizer" title="stringcompare.preprocessing.tokenizer.Tokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.Tokenizer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.DelimTokenizer.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#DelimTokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.DelimTokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.NGramTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">NGramTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#NGramTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.NGramTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.Tokenizer" title="stringcompare.preprocessing.tokenizer.Tokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.Tokenizer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.NGramTokenizer.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#NGramTokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.NGramTokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">Tagger</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tagger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tagger.LABELS">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LABELS</span></span><a class="headerlink" href="#stringcompare.preprocessing.Tagger.LABELS" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod(function) -&gt; method</p>
+<p>Convert a function to be a class method.</p>
+<p>A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:</p>
+<blockquote>
+<div><dl>
+<dt>class C:</dt><dd><p>&#64;classmethod
+def f(cls, arg1, arg2, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.</p>
+<p>Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tagger.batch_tag">
+<span class="sig-name descname"><span class="pre">batch_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger.batch_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tagger.batch_tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tagger.tag">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tagger.tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">Tokenizer</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>String tokenization interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tokenizer.batch_tokenize">
+<span class="sig-name descname"><span class="pre">batch_tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer.batch_tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tokenizer.batch_tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.Tokenizer.tokenize">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.Tokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.WhitespaceTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.</span></span><span class="sig-name descname"><span class="pre">WhitespaceTokenizer</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#WhitespaceTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.WhitespaceTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.DelimTokenizer" title="stringcompare.preprocessing.tokenizer.DelimTokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.DelimTokenizer</span></code></a></p>
+</dd></dl>
+
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-stringcompare.preprocessing.tagger">
+<span id="stringcompare-preprocessing-tagger-module"></span><h2>stringcompare.preprocessing.tagger module<a class="headerlink" href="#module-stringcompare.preprocessing.tagger" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.DeepparseAddressTagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tagger.</span></span><span class="sig-name descname"><span class="pre">DeepparseAddressTagger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deepparse_handle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.DeepparseAddressTagger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tagger.Tagger" title="stringcompare.preprocessing.tagger.Tagger"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tagger.Tagger</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.DeepparseAddressTagger.LABELS">
+<span class="sig-name descname"><span class="pre">LABELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['StreetNumber',</span> <span class="pre">'StreetName',</span> <span class="pre">'Unit',</span> <span class="pre">'Municipality',</span> <span class="pre">'Province',</span> <span class="pre">'PostalCode',</span> <span class="pre">'Orientation',</span> <span class="pre">'GeneralDelivery']</span></em><a class="headerlink" href="#stringcompare.preprocessing.tagger.DeepparseAddressTagger.LABELS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.DeepparseAddressTagger.batch_tag">
+<span class="sig-name descname"><span class="pre">batch_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger.batch_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.DeepparseAddressTagger.batch_tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.DeepparseAddressTagger.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#DeepparseAddressTagger.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.DeepparseAddressTagger.tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.Tagger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tagger.</span></span><span class="sig-name descname"><span class="pre">Tagger</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.Tagger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.Tagger.LABELS">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LABELS</span></span><a class="headerlink" href="#stringcompare.preprocessing.tagger.Tagger.LABELS" title="Permalink to this definition"></a></dt>
+<dd><p>classmethod(function) -&gt; method</p>
+<p>Convert a function to be a class method.</p>
+<p>A class method receives the class as implicit first argument,
+just like an instance method receives the instance.
+To declare a class method, use this idiom:</p>
+<blockquote>
+<div><dl>
+<dt>class C:</dt><dd><p>&#64;classmethod
+def f(cls, arg1, arg2, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>It can be called either on the class (e.g. C.f()) or on an instance
+(e.g. C().f()).  The instance is ignored except for its class.
+If a class method is called for a derived class, the derived class
+object is passed as the implied first argument.</p>
+<p>Class methods are different than C++ or Java static methods.
+If you want those, see the staticmethod builtin.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.Tagger.batch_tag">
+<span class="sig-name descname"><span class="pre">batch_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger.batch_tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.Tagger.batch_tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tagger.Tagger.tag">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tagger.html#Tagger.tag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tagger.Tagger.tag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-stringcompare.preprocessing.tokenizer">
+<span id="stringcompare-preprocessing-tokenizer-module"></span><h2>stringcompare.preprocessing.tokenizer module<a class="headerlink" href="#module-stringcompare.preprocessing.tokenizer" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.DelimTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tokenizer.</span></span><span class="sig-name descname"><span class="pre">DelimTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#DelimTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.DelimTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.Tokenizer" title="stringcompare.preprocessing.tokenizer.Tokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.Tokenizer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.DelimTokenizer.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#DelimTokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.DelimTokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.NGramTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tokenizer.</span></span><span class="sig-name descname"><span class="pre">NGramTokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#NGramTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.NGramTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.Tokenizer" title="stringcompare.preprocessing.tokenizer.Tokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.Tokenizer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.NGramTokenizer.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#NGramTokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.NGramTokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.Tokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tokenizer.</span></span><span class="sig-name descname"><span class="pre">Tokenizer</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.Tokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>String tokenization interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.Tokenizer.batch_tokenize">
+<span class="sig-name descname"><span class="pre">batch_tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentences</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer.batch_tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.Tokenizer.batch_tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.Tokenizer.tokenize">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.Tokenizer.tokenize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="stringcompare.preprocessing.tokenizer.WhitespaceTokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stringcompare.preprocessing.tokenizer.</span></span><span class="sig-name descname"><span class="pre">WhitespaceTokenizer</span></span><a class="reference internal" href="../_modules/stringcompare/preprocessing/tokenizer.html#WhitespaceTokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#stringcompare.preprocessing.tokenizer.WhitespaceTokenizer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stringcompare.preprocessing.tokenizer.DelimTokenizer" title="stringcompare.preprocessing.tokenizer.DelimTokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">stringcompare.preprocessing.tokenizer.DelimTokenizer</span></code></a></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stringcompare.html" class="btn btn-neutral float-left" title="stringcompare package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Olivier Binette.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

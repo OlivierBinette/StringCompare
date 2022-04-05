@@ -29,7 +29,6 @@ public:
     vector<bool> found_s = vector<bool>(ssize, false);
     vector<bool> found_t = vector<bool>(tsize, false);
 
-    size_t j0, j1;
     for (size_t i = 0; i < ssize; i++) {
         for (size_t j = 0; j < tsize; j++) {
             if (!found_t[j] && (s[i] == t[j]) && (abs(int(i)-int(j)) < window)) {

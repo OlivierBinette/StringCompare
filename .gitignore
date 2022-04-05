@@ -12,9 +12,10 @@ build/
 *.so
 .vscode/*
 
-docs/_build
 coverage.xml
 .coverage
+
+documentation/doctrees
 
 *.zip
 *.log

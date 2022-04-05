@@ -1,0 +1,28 @@
+name: Multi-os install
+
+on: [push]
+
+jobs:
+  build-linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-18.04, macos, macos-10.15, macos-11]
+        python: [3.6, 3.7, "3.10"]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install and load
+      run: |
+        pip install -e .
+        python -c "import stringcompare"
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest
+        

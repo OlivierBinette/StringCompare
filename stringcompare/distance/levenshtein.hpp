@@ -9,9 +9,6 @@
 namespace py = pybind11;
 using namespace std;
 
-template<class T>
-using Mat = vector<vector<T>>;
-
 class Levenshtein: public StringComparator {
 public:
 
@@ -19,7 +16,7 @@ public:
   bool similarity;
   int dmat_size;
   bool check_bounds;
-  Mat<int> dmat;
+  vector<int> dmat;
 
   Levenshtein(bool normalize=true, bool similarity=false, int dmat_size=100, bool check_bounds=true){
     this->normalize = normalize;
@@ -27,7 +24,7 @@ public:
     this->dmat_size = dmat_size;
     this->check_bounds = check_bounds;
 
-    this->dmat = Mat<int>(2, vector<int>(dmat_size));
+    this->dmat = vector<int>(dmat_size);
   }
 
   int levenshtein(const string &s, const string &t) {
@@ -35,31 +32,27 @@ public:
     int n = t.size();
 
     for (int i = 0; i <= m; i++) {
-      dmat[0][i] = i;
+      dmat[i] = i;
     }
 
-    int cost;
+    int p = m;
+    int temp;
     for (int j = 1; j <= n; j++) {
-      dmat[(j-1) % 2][0] = j-1;
-      dmat[j % 2][0] = j;
+      temp = j-1;
+      p = j;
       for (int i = 1; i <= m; i++) {
-        cost = 0;
-        if (s[i-1] != t[j-1]){
-          cost = 1;
-        }
-        dmat[j % 2][i] = min({dmat[j % 2][i-1] + 1, dmat[(j-1) % 2][i] +
-                                 1, dmat[(j-1) % 2][i-1] + cost});
+        p = min({p + 1, dmat[i] + 1, temp + (s[i-1] != t[j-1])});
+        temp = dmat[i];
+        dmat[i] = p;
       }
     }
 
-    return dmat[n % 2][m];
+    return p;
   }
 
   double compare(const string &s, const string &t) {
     if (check_bounds) {
-      auto m = max(s.size(), t.size()) + 1;
-      dmat[0].reserve(m);
-      dmat[1].reserve(m);
+      dmat.reserve(s.size()+1);
     }
 
     double len = s.size() + t.size();

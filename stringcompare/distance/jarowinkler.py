@@ -12,11 +12,10 @@ def jarowinkler(s, t, p=0.1):
 
     sim = jaro(s, t)
 
-    return sim + ell * p * (1-sim)
+    return sim + ell * p * (1 - sim)
 
 
 class JaroWinkler(StringComparator):
-
     def __init__(self, similarity=False):
         self.similarity = similarity
 

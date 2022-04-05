@@ -25,7 +25,7 @@ class Comparator {
 
         py::array_t<double> result(l1.size());
         auto res = result.mutable_unchecked<1>();
-        for (long int i = 0; i < l1.size(); i++) {
+        for (size_t i = 0; i < l1.size(); i++) {
             res(i) = this->compare(l1[i], l2[i]);
         }
 
@@ -52,11 +52,11 @@ class NumericComparator: public Comparator<double> {};
 
 
 template<class T>
-void declare_comparator(py::module &m, string name) {
-    py::class_<T>(m, name.c_str())
+void declare_comparator(py::module &m, string name, string classdoc="", string comparedoc="", string ewdoc="", string pwdoc="") {
+    py::class_<T>(m, name.c_str(), classdoc.c_str())
         .def("__call__", &T::operator())
-        .def("compare", &T::compare)
-        .def("elementwise", &T::elementwise)
-        .def("pairwise", &T::pairwise);
+        .def("compare", &T::compare, comparedoc.c_str())
+        .def("elementwise", &T::elementwise, ewdoc.c_str())
+        .def("pairwise", &T::pairwise, pwdoc.c_str());
 }
 

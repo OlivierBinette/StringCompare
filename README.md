@@ -1,23 +1,27 @@
  
 [![Python package](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml) 
 [![codecov](https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051)](https://codecov.io/gh/OlivierBinette/StringCompare)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CodeFactor](https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge)](https://www.codefactor.io/repository/github/olivierbinette/stringcompare)
 [![Lifecycle Maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![Documentation Status](https://readthedocs.org/projects/stringcompare/badge/?version=latest)](https://stringcompare.readthedocs.io/en/latest/?badge=latest)
+[![Release version](https://img.shields.io/github/v/release/olivierbinette/stringcompare)](https://github.com/OlivierBinette/StringCompare/releases) 
+[![Sponsors](https://img.shields.io/github/sponsors/OlivierBinette)](https://github.com/sponsors/OlivierBinette) 
 
-
+ 
 # ⚡ **StringCompare**: Efficient String Comparison Functions
 
-**StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent [*comparator*](https://github.com/ngmarchant/comparator) and [*stringdist*](https://github.com/markvanderloo/stringdist) R packages, as well as from the [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
+**StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent [*comparator*](https://github.com/ngmarchant/comparator) and [*stringdist*](https://github.com/markvanderloo/stringdist) R packages, and from the equally excellent [*py_stringmatching*](https://github.com/anhaidgroup/py_stringmatching), [*jellyfish*](https://github.com/jamesturk/jellyfish), and [*textdistance*](https://github.com/life4/textdistance) Python packages.
 
-The key feature of **StringCompare** is a focus on speed and extensibility through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+The key feature of **StringCompare** is a focus on speed, extensibility and maintainability through its [*pybind11* ](https://github.com/pybind/pybind11) C++ implementation. **StringCompare** is faster than most other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+
+The [complete API documentation](https://olivierbinette.github.io/StringCompare/source/stringcompare.html) is available on the project website [olivierbinette.github.io/StringCompare](https://olivierbinette.github.io/StringCompare).
 
 ## Installation
 
-Install from github using the following command:
+Install the development version from github using the following commands:
 
-    pip install setuptools wheel pybind11
+```bash
     pip install git+https://github.com/OlivierBinette/StringCompare.git
+```
 
 ## Project Roadmap
 
@@ -83,63 +87,70 @@ lev.pairwise(["Olivier", "Oliver"], ["Olivier", "Olivia"])
 
 ## Benchmark
 
-Comparison of the Jaro-Winkler implementation speed for different Python packages:
-
-**StringCompare**
+Comparison of the Damerau-Levenshtein implementation speed for different Python packages, when comparing the strings "Olivier Binette" and "Oilvier Benet":
 
 
 ```python
-from stringcompare import JaroWinkler
-cmp = JaroWinkler()
-%timeit cmp.compare("Olivier Binette", "Oilvier Benet")
+from timeit import timeit
+from tabulate import tabulate
+
+# Comparison functions
+from stringcompare import DamerauLevenshtein
+cmp = DamerauLevenshtein()
+from jellyfish import damerau_levenshtein_distance
+from textdistance import damerau_levenshtein
+
+functions = {
+    "StringCompare": cmp.compare,
+    "jellyfish": damerau_levenshtein_distance,
+    "textdistance": damerau_levenshtein,
+}
+
+table = [
+    [name, timeit(lambda: fun("Olivier Binette", "Oilvier Benet"), number=1000000) * 1000]
+    for name, fun in functions.items()
+]
+print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 ```
 
-    361 ns ± 0.916 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    Package          avg runtime (ns)
+    -------------  ------------------
+    StringCompare             713.276
+    jellyfish                 989.707
+    textdistance             4022.5
 
 
-**jellyfish**
+### Performance notes
 
+The use of pybind11 comes with a small performance overhead. We could be faster if we directly interfaced with CPython.
 
-```python
-from jellyfish import jaro_winkler
-%timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
-```
-
-    1.53 µs ± 20.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-
-
-**py_stringmatching**
-
-
-```python
-from py_stringmatching import JaroWinkler
-jw = JaroWinkler()
-%timeit jw.get_sim_score("Olivier Binette", "Oilvier Benet")
-```
-
-    3.22 µs ± 142 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-
-
-**textdistance**
-
-
-```python
-from textdistance import jaro_winkler
-%timeit jaro_winkler("Olivier Binette", "Oilvier Benet")
-```
-
-    3.42 µs ± 38.4 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-
+However, the use of pybind11 allows the library to be easily extensible and maintainable. The C++ implementation has little to worry about Python, excepted for the use of a pybind11 numpy wrapper in some places. Pybind11 takes care of the details of exposing the C++ API to Python.
 
 ## Known Bugs
 
-- *pybind11* has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and `gcc --version` is 11, then use the following commands to configure your environment before installing:
-
-        sudo apt-get install gcc-9 g++-9
-        export CC=gcc-9 && export CXX=g++-9
+*pybind11* has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and `gcc --version` is 11, then use the following commands to configure your environment before (re)installing:
+```bash
+        sudo apt install g++-9 gcc-9
+        export CC=gcc-9 CXX=g++-9
+```
+If this is unsuccessful, you might want to use **StringCompare** within a [Docker](https://www.docker.com/) container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install **StringCompare** as follows:
+```bash
+        sudo docker run -it python:3.7.9 bash
+        pip install git+https://github.com/OlivierBinette/StringCompare.git
+        python
+        >>> import stringcompare
+```
 
 Please report installation issues [here](https://github.com/OlivierBinette/StringCompare/issues).
 
 ## Contribute
 
-**StringCompare** is currently in early development stage and contributions are welcome! See the [contributing](https://stringcompare.readthedocs.io/en/latest/contributing.html) page for more information.
+**StringCompare** is currently in early development stage and contributions are welcome! See the [contributing](https://olivierbinette.github.io/StringCompare/contributing.html) page for more information. 
+
+## Acknowledgements
+
+This project is made possible by the support of the [Natural Sciences and Engineering Research Council of Canada (NSERC)](www.nserc-crsng.gc.ca) and by the support of a [G-Research](https://www.gresearch.co.uk/) grant.
+
+<a href="https://www.gresearch.co.uk/"><img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/gtqacyz2dx8jqicpnmqr" height=100 style="margin:20px"></a><a href="https://www.nserc-crsng.gc.ca"><img src="https://umanitoba.ca/faculties/engineering/media/NSERC_Logo.png" height=100 style="margin:20px"></a>
+
+I would also like to thank the support of my individual [Github sponsors](https://github.com/sponsors/olivierbinette).

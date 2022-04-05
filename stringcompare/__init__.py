@@ -1,7 +1,8 @@
-from .distance import Levenshtein, DamerauLevenshtein, LCSDistance, Jaro, JaroWinkler
+from .distance import *
+from .preprocessing import *
 
 import pkg_resources
+
 __version__ = pkg_resources.require("stringcompare")[0].version
 
-__all__ = ["Levenshtein", "DamerauLevenshtein",
-           "LCSDistance", "Jaro", "JaroWinkler", "__version__"]
+__all__ = ["__version__"] + distance.__all__ + preprocessing.__all__

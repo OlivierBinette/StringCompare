@@ -1,7 +1,10 @@
 from stringcompare import DamerauLevenshtein
-from stringcompare.distance.dameraulevenshtein import DamerauLevenshtein as PyDamerauLevenshtein
+from stringcompare.distance.dameraulevenshtein import (
+    DamerauLevenshtein as PyDamerauLevenshtein,
+)
 import string
 import random
+
 random.seed(1)
 
 
@@ -75,11 +78,11 @@ def test_DamerauLevenshtein_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_DamerauLevenshtein_TT():
@@ -97,11 +100,11 @@ def test_DamerauLevenshtein_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_DamerauLevenshtein_dmat_size():
@@ -171,11 +174,11 @@ def test_PyDamerauLevenshtein_TF():
     assert cmp.compare("", "ab") == 1
     assert cmp.compare("", "! +-2/.") == 1
 
-    assert cmp.compare("1", "1234") == 3/4
-    assert cmp.compare("4", "1234") == 3/4
+    assert cmp.compare("1", "1234") == 3 / 4
+    assert cmp.compare("4", "1234") == 3 / 4
 
-    assert cmp.compare("1234", "1") == 3/4
-    assert cmp.compare("1234", "4") == 3/4
+    assert cmp.compare("1234", "1") == 3 / 4
+    assert cmp.compare("1234", "4") == 3 / 4
 
 
 def test_PyDamerauLevenshtein_TT():
@@ -193,11 +196,11 @@ def test_PyDamerauLevenshtein_TT():
     assert cmp.compare("", "ab") == 0
     assert cmp.compare("", "! +-2/.") == 0
 
-    assert cmp.compare("1", "1234") == 1/4
-    assert cmp.compare("4", "1234") == 1/4
+    assert cmp.compare("1", "1234") == 1 / 4
+    assert cmp.compare("4", "1234") == 1 / 4
 
-    assert cmp.compare("1234", "1") == 1/4
-    assert cmp.compare("1234", "4") == 1/4
+    assert cmp.compare("1234", "1") == 1 / 4
+    assert cmp.compare("1234", "4") == 1 / 4
 
 
 def test_PyDamerauLevenshtein_dmat_size():
@@ -210,8 +213,7 @@ def test_PyDamerauLevenshtein_dmat_size():
 
 def test_pycpp():
     cmp = DamerauLevenshtein(normalize=False, similarity=False, dmat_size=20)
-    pycmp = PyDamerauLevenshtein(
-        normalize=False, similarity=False, dmat_size=20)
+    pycmp = PyDamerauLevenshtein(normalize=False, similarity=False, dmat_size=20)
 
     for i in range(20):
         for j in range(20):
