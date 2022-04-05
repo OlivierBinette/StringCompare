@@ -38,7 +38,7 @@
 
 **StringCompare** is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent `\ *comparator* <https://github.com/ngmarchant/comparator>`_ and `\ *stringdist* <https://github.com/markvanderloo/stringdist>`_ R packages, and from the equally excellent `\ *py_stringmatching* <https://github.com/anhaidgroup/py_stringmatching>`_\ , `\ *jellyfish* <https://github.com/jamesturk/jellyfish>`_\ , and `\ *textdistance* <https://github.com/life4/textdistance>`_ Python packages.
 
-The key feature of **StringCompare** is a focus on speed, extensibility and maintainability through its `\ *pybind11*  <https://github.com/pybind/pybind11>`_ C++ implementation. **StringCompare** is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
+The key feature of **StringCompare** is a focus on speed, extensibility and maintainability through its `\ *pybind11*  <https://github.com/pybind/pybind11>`_ C++ implementation. **StringCompare** is faster than most other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.
 
 The `complete API documentation <https://olivierbinette.github.io/StringCompare/source/stringcompare.html>`_ is available on the project website `olivierbinette.github.io/StringCompare <https://olivierbinette.github.io/StringCompare>`_.
 
@@ -155,9 +155,9 @@ Comparison of the Damerau-Levenshtein implementation speed for different Python 
 
    Package          avg runtime (ns)
    -------------  ------------------
-   StringCompare              698.56
-   jellyfish                  956.46
-   textdistance              3845.14
+   StringCompare             755.806
+   jellyfish                1012.88
+   textdistance             4033.49
 
 
 

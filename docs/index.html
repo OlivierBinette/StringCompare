@@ -77,7 +77,7 @@
 <section id="stringcompare-efficient-string-comparison-functions">
 <h1>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions<a class="headerlink" href="#stringcompare-efficient-string-comparison-functions" title="Permalink to this headline"></a></h1>
 <p><strong>StringCompare</strong> is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent <a class="reference external" href="https://github.com/ngmarchant/comparator">*comparator*</a> and <a class="reference external" href="https://github.com/markvanderloo/stringdist">*stringdist*</a> R packages, and from the equally excellent <a class="reference external" href="https://github.com/anhaidgroup/py_stringmatching">*py_stringmatching*</a>, <a class="reference external" href="https://github.com/jamesturk/jellyfish">*jellyfish*</a>, and <a class="reference external" href="https://github.com/life4/textdistance">*textdistance*</a> Python packages.</p>
-<p>The key feature of <strong>StringCompare</strong> is a focus on speed, extensibility and maintainability through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
+<p>The key feature of <strong>StringCompare</strong> is a focus on speed, extensibility and maintainability through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than most other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
 <p>The <a class="reference external" href="https://olivierbinette.github.io/StringCompare/source/stringcompare.html">complete API documentation</a> is available on the project website <a class="reference external" href="https://olivierbinette.github.io/StringCompare">olivierbinette.github.io/StringCompare</a>.</p>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
@@ -177,9 +177,9 @@
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>          <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 <span class="o">-------------</span>  <span class="o">------------------</span>
-<span class="n">StringCompare</span>              <span class="mf">698.56</span>
-<span class="n">jellyfish</span>                  <span class="mf">956.46</span>
-<span class="n">textdistance</span>              <span class="mf">3845.14</span>
+<span class="n">StringCompare</span>             <span class="mf">755.806</span>
+<span class="n">jellyfish</span>                <span class="mf">1012.88</span>
+<span class="n">textdistance</span>             <span class="mf">4033.49</span>
 </pre></div>
 </div>
 <section id="performance-notes">

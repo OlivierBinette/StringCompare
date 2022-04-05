@@ -30,7 +30,7 @@ SPHINXPROJ    = stringcompare
 SOURCEDIR     = documentation
 BUILDDIR      = .
 
-docs:
+docs: README.md
 	rm -rf docs
 	sphinx-apidoc -M -f -o documentation/source stringcompare stringcompare stringcompare/distance/
 	m2r README.md
