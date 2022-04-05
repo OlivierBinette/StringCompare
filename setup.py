@@ -8,7 +8,7 @@ if __name__ == "__main__":
     setup(
         ext_modules=ext_modules,
         name="stringcompare",
-        version="0.0.1.post0",
+        version="0.1.0",
         author="Olivier Binette",
         author_email="olivier.binette@gmail.com",
         description="Efficient string comparison functions.",

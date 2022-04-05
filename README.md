@@ -17,10 +17,10 @@ The [complete API documentation](https://olivierbinette.github.io/StringCompare/
 
 ## Installation
 
-Install the development version from github using the following commands:
+Install the released version from github using the following commands:
 
 ```bash
-    pip install git+https://github.com/OlivierBinette/StringCompare.git
+    pip install git+https://github.com/OlivierBinette/StringCompare.git@release
 ```
 
 ## Project Roadmap
@@ -115,9 +115,9 @@ print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 
     Package          avg runtime (ns)
     -------------  ------------------
-    StringCompare             713.276
-    jellyfish                 989.707
-    textdistance             4022.5
+    StringCompare             697.834
+    jellyfish                 974.363
+    textdistance             3982.73
 
 
 ### Performance notes
