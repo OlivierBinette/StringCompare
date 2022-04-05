@@ -115,9 +115,9 @@ print(tabulate(table, headers=["Package", "avg runtime (ns)"]))
 
     Package          avg runtime (ns)
     -------------  ------------------
-    StringCompare             755.806
-    jellyfish                1012.88
-    textdistance             4033.49
+    StringCompare             668.583
+    jellyfish                 930.718
+    textdistance             3905.6
 
 
 ### Performance notes
