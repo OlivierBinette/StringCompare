@@ -33,4 +33,4 @@ class NGramTokenizer(Tokenizer):
         self.n = n
 
     def tokenize(self, sentence):
-        return zip(*(sentence[i:] for i in range(self.n)))
+        return [sentence[i:i+self.n] for i in range(len(sentence)-self.n+1)]

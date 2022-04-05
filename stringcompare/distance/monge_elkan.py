@@ -1,4 +1,3 @@
-from tokenize import Token
 from .comparator import StringComparator
 from ..preprocessing.tokenizer import Tokenizer
 
