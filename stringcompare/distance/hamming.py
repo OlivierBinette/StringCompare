@@ -25,3 +25,4 @@ class Hamming(StringComparator):
             result /= length
 
         return result
+print(5)
