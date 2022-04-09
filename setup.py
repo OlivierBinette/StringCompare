@@ -12,8 +12,8 @@ if __name__ == "__main__":
         author="Olivier Binette",
         author_email="olivier.binette@gmail.com",
         description="Efficient string comparison functions.",
-        license="GPL 3",
-        license_files="LICENSE",
+        #license="",
+        #license_files="",
         keywords=[
             "record-linkage",
             "string-distance",
