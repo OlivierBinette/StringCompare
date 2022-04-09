@@ -28,6 +28,7 @@ class WhitespaceTokenizer(DelimTokenizer):
 
 
 class NGramTokenizer(Tokenizer):
+    # TODO: Add "delim" option to tokenize around words or other delimiters. delim="" should tokenize at the character level.
     def __init__(self, n):
 
         self.n = n
