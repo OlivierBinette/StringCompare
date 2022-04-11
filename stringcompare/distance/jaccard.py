@@ -14,10 +14,8 @@ class Jaccard(StringComparator):
     self.tokenizer = tokenizer 
 
   def compare(self, s, t):
+    if len(s) + len(t) == 0:
+      return 1*self.similarity
     if self.similarity: 
       return jaccard(s,t,self.tokenizer)
-    else:
-      return 1 - jaccard(s,t,self.tokenizer)
-
-
-  
+    return 1 - jaccard(s,t,self.tokenizer)
