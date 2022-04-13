@@ -1,13 +1,13 @@
 name: Multi-os install
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build-linux:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, ubuntu-18.04, macos, macos-10.15, macos-11]
+        os: [ubuntu-latest, ubuntu-18.04, macos]
         python: [3.6, 3.7, "3.10"]
     runs-on: ${{ matrix.os }}
 
