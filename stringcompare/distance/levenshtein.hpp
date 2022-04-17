@@ -18,11 +18,10 @@ public:
   bool check_bounds;
   vector<int> dmat;
 
-  Levenshtein(bool normalize=true, bool similarity=false, int dmat_size=100, bool check_bounds=true){
+  Levenshtein(bool normalize=true, bool similarity=false, int dmat_size=100){
     this->normalize = normalize;
     this->similarity = similarity;
     this->dmat_size = dmat_size;
-    this->check_bounds = check_bounds;
 
     this->dmat = vector<int>(dmat_size);
   }
@@ -51,9 +50,7 @@ public:
   }
 
   double compare(const string &s, const string &t) {
-    if (check_bounds) {
-      dmat.reserve(s.size()+1);
-    }
+    dmat.reserve(s.size()+1);
 
     double len = s.size() + t.size();
 
