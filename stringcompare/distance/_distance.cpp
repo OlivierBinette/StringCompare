@@ -94,8 +94,7 @@ Pairwise comparison between two lists.
 
     :param normalize: Whether or not to normalize the result to be between 0 and 1. Defaults to True.
     :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
-    :param dmat_size: Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.
-    :param check_bounds: Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as :code:`dmat_size` is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.
+    :param dmat_size: Initial ength of the internal string buffer. Defaults to 100.
     
     :Examples:
     >>> from stringcompare import Levenshtein
@@ -119,7 +118,7 @@ Pairwise comparison between two lists.
            [1. , 1. ]])
     )"""
     )
-      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
+      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
       .def("compare", &Levenshtein::compare);
 
     py::class_<DamerauLevenshtein, StringComparator>(m, "DamerauLevenshtein",
@@ -130,10 +129,9 @@ Pairwise comparison between two lists.
 
     :param normalize: Whether or not to normalize the result to be between 0 and 1. Defaults to True.
     :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
-    :param dmat_size: Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.
-    :param check_bounds: Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as :code:`dmat_size` is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.
+    :param dmat_size: Initial length of the internal string buffer.
     )""")
-      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
+      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
       .def("compare", &DamerauLevenshtein::compare);
 
     py::class_<Jaro, StringComparator>(m, "Jaro",
@@ -164,11 +162,10 @@ Pairwise comparison between two lists.
 
     :param normalize: Whether or not to normalize the result to be between 0 and 1. Defaults to True.
     :param similarity: Whether or not to return a similarity score (higher for more similar strings) or a distance score (closer to zero for more similar strings). Defaults to False.
-    :param dmat_size: Length of the internal string buffer. Should be set higher than the maximum string length if check_bounds is set to False. Defaults to 100.
-    :param check_bounds: Whether or not to check if string lengths exceed internal buffer size and resize accordingly. Set to False for more efficiency, as long as :code:`dmat_size` is higher than the maximal string length on which this Comparator object will be called. Defaults to True for safety.
+    :param dmat_size: Initial length of the internal string buffer.
     )"""
     )
-      .def(py::init<bool, bool, int, bool>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100, py::arg("check_bounds")=true)
+      .def(py::init<bool, bool, int>(), py::arg("normalize")=true, py::arg("similarity")=false, py::arg("dmat_size")=100)
       .def("compare", &LCSDistance::compare);
 
     py::class_<CharacterDifference, StringComparator>(m, "CharacterDifference",
