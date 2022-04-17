@@ -11,6 +11,7 @@
 #include "lcs.hpp"
 #include "characterdifference.hpp"
 #include "hamming.hpp"
+#include "jaccard.hpp"
 
 PYBIND11_MODULE(_distance, m) {
 
@@ -196,4 +197,9 @@ Pairwise comparison between two lists.
     )
       .def(py::init<bool, bool>(), py::arg("normalize")=true, py::arg("similarity")=false)
       .def("compare", &Hamming::compare);
+    
+    py::class_<Jaccard, StringComparator>(m, "Jaccard")
+      .def(py::init<Tokenizer, bool, bool>(), py::arg("tokenizer"), py::arg("normalize")=true, py::arg("similarity")=false)
+      .def("compare", &Jaccard::compare);
+
 }

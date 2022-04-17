@@ -15,7 +15,7 @@ class Tokenizer(ABC):
 
 
 class DelimTokenizer(Tokenizer):
-    def __init__(self, delim = " "):
+    def __init__(self, delim):
         self.delim = delim
 
     def tokenize(self, sentence):

@@ -1,4 +1,4 @@
-from .tokenizer import Tokenizer, DelimTokenizer, WhitespaceTokenizer, NGramTokenizer
+from stringcompare.preprocessing._preprocessing import Tokenizer, DelimTokenizer, WhitespaceTokenizer, NGramTokenizer
 from .tagger import Tagger, DeepparseAddressTagger
 
 __all__ = [

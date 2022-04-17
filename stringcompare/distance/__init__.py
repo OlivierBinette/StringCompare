@@ -8,6 +8,7 @@ from stringcompare.distance._distance import (
     LCSDistance,
     CharacterDifference,
     Hamming,
+    Jaccard,
 )
 
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     "LCSDistance",
     "CharacterDifference",
     "Hamming",
+    "Jaccard",
 ]
