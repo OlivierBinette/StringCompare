@@ -3,7 +3,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <vector>
-#include <set>
 #include <sstream>
 
 namespace py = pybind11;
@@ -12,17 +11,17 @@ using namespace std;
 class Tokenizer {
 public:
 
-    multiset<string> tokenize(const string &sentence){
-        multiset<string> result;
+    vector<string> tokenize(const string &sentence){
+        vector<string> result;
         return result;
     }
 
-    multiset<string> operator()(const string &sentence) {
+    vector<string> operator()(const string &sentence) {
         return this->tokenize(sentence);
     }
 
-    vector<multiset<string>> batch_tokenize(const vector<string> &sentences) {
-        vector<multiset<string>> result(sentences.size());
+    vector<vector<string>> batch_tokenize(const vector<string> &sentences) {
+        vector<vector<string>> result(sentences.size());
         for (size_t i = 0; i < sentences.size(); i++) {
             result[i] = this->tokenize(sentences[i]);
         }
@@ -37,17 +36,18 @@ public:
 
     string delim;
 
-    DelimTokenizer(const string &delim) {
+    DelimTokenizer(const string delim) {
         this->delim = delim;
     }
 
-    multiset<string> tokenize(const string &sentence) {
-        multiset<string> result;
+    vector<string> tokenize(const string &sentence) {
+        vector<string> result;
         
-        stringstream ss(this->delim);
+        stringstream ss(sentence);
         string s;
-        while(ss >> s) {
-            result.insert(s);
+        while(getline(ss, s, this->delim)) {
+            py::print(s);
+            result.push_back(s);
         }
 
         return result;
@@ -70,12 +70,12 @@ public:
         this->n = n;
     }
 
-    multiset<string> tokenize(const string &sentence) {
+    vector<string> tokenize(const string &sentence) {
         const char* cstring = sentence.c_str();
-        multiset<string> result;
+        vector<string> result;
 
         for (size_t i = 0; i < sentence.size() - this->n; i++) {
-            result.insert(string(cstring, this->n));
+            result.push_back(string(cstring, this->n));
             cstring += this->n;
         }
 
