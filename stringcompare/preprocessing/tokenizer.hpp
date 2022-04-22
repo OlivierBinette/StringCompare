@@ -38,10 +38,17 @@ public:
 
     DelimTokenizer(const string delim) {
         this->delim = delim;
+        if (this->delim.size() == 0) {
+            throw pybind11::value_error("Empty delimiter");
+        }
     }
 
     vector<string> tokenize(const string &sentence) {
-        vector<string> result;        
+        vector<string> result;
+
+        if (sentence.size() == 0) {
+            return result;
+        }
 
         size_t k = this->delim.size();
         size_t pos = 0;
@@ -78,6 +85,10 @@ public:
     vector<string> tokenize(const string &sentence) {
         const char* cstring = sentence.c_str();
         vector<string> result;
+
+        if (this->n <= 0) {
+            return result;
+        }
 
         for (size_t i = 0; i < sentence.size() - this->n; i++) {
             result.push_back(sentence.substr(i, this->n));
