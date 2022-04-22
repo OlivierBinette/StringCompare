@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from pybind11.setup_helpers import build_ext, intree_extensions
 
 if __name__ == "__main__":
-    ext_modules = intree_extensions(["stringcompare/distance/_distance.cpp"])
+    ext_modules = intree_extensions(["stringcompare/distance/_distance.cpp", "stringcompare/preprocessing/_preprocessing.cpp"])
 
     setup(
         ext_modules=ext_modules,
