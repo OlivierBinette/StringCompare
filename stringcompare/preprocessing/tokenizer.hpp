@@ -3,7 +3,6 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <vector>
-#include <set>
 #include <sstream>
 
 namespace py = pybind11;
@@ -12,17 +11,17 @@ using namespace std;
 class Tokenizer {
 public:
 
-    multiset<string> tokenize(const string &sentence){
-        multiset<string> result;
+    vector<string> tokenize(const string &sentence){
+        vector<string> result;
         return result;
     }
 
-    multiset<string> operator()(const string &sentence) {
+    vector<string> operator()(const string &sentence) {
         return this->tokenize(sentence);
     }
 
-    vector<multiset<string>> batch_tokenize(const vector<string> &sentences) {
-        vector<multiset<string>> result(sentences.size());
+    vector<vector<string>> batch_tokenize(const vector<string> &sentences) {
+        vector<vector<string>> result(sentences.size());
         for (size_t i = 0; i < sentences.size(); i++) {
             result[i] = this->tokenize(sentences[i]);
         }
@@ -37,17 +36,25 @@ public:
 
     string delim;
 
-    DelimTokenizer(const string &delim) {
+    DelimTokenizer(const string delim) {
         this->delim = delim;
     }
 
-    multiset<string> tokenize(const string &sentence) {
-        multiset<string> result;
-        
-        stringstream ss(this->delim);
-        string s;
-        while(ss >> s) {
-            result.insert(s);
+    vector<string> tokenize(const string &sentence) {
+        vector<string> result;        
+
+        size_t k = this->delim.size();
+        size_t pos = 0;
+        size_t match = 0;
+
+        while ((match = sentence.find(this->delim, pos)) != string::npos) {
+            if (match != pos) {
+                result.push_back(sentence.substr(pos, match - pos));
+            }
+            pos = match + k;
+        }
+        if (pos < sentence.size()) {
+            result.push_back(sentence.substr(pos));
         }
 
         return result;
@@ -56,9 +63,7 @@ public:
 
 class WhitespaceTokenizer: public DelimTokenizer {
 public:
-    WhitespaceTokenizer(): DelimTokenizer(" ") {
-
-    }
+    WhitespaceTokenizer(): DelimTokenizer(" ") {}
 };
 
 class NGramTokenizer: public Tokenizer {
@@ -70,13 +75,12 @@ public:
         this->n = n;
     }
 
-    multiset<string> tokenize(const string &sentence) {
+    vector<string> tokenize(const string &sentence) {
         const char* cstring = sentence.c_str();
-        multiset<string> result;
+        vector<string> result;
 
         for (size_t i = 0; i < sentence.size() - this->n; i++) {
-            result.insert(string(cstring, this->n));
-            cstring += this->n;
+            result.push_back(sentence.substr(i, this->n));
         }
 
         return result;
