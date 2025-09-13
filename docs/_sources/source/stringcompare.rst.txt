@@ -3,8 +3,8 @@ stringcompare package
 
 .. automodule:: stringcompare
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Subpackages
 -----------

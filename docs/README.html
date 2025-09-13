@@ -1,20 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>⚡ StringCompare: Efficient String Comparison Functions &mdash; stringcompare  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> stringcompare
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            stringcompare
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -70,8 +75,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -81,33 +86,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <a class="reference external image-reference" href="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml"><img alt="Python package" src="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg" /></a>
-<a class="reference external image-reference" href="https://codecov.io/gh/OlivierBinette/StringCompare"><img alt="codecov" src="https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051" /></a>
-<a class="reference external image-reference" href="https://www.codefactor.io/repository/github/olivierbinette/stringcompare"><img alt="CodeFactor" src="https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge" /></a>
-<a class="reference external image-reference" href="https://lifecycle.r-lib.org/articles/stages.html"><img alt="Lifecycle Maturing" src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" /></a>
-<a class="reference external image-reference" href="https://github.com/OlivierBinette/StringCompare/releases"><img alt="Release version" src="https://img.shields.io/github/v/release/olivierbinette/stringcompare" /></a>
-<a class="reference external image-reference" href="https://github.com/sponsors/OlivierBinette"><img alt="Sponsors" src="https://img.shields.io/github/sponsors/OlivierBinette" /></a>
+  <a class="reference external image-reference" href="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml"><img alt="Python package" src="https://github.com/OlivierBinette/StringCompare/actions/workflows/python-package-conda.yml/badge.svg" />
+</a>
+<a class="reference external image-reference" href="https://codecov.io/gh/OlivierBinette/StringCompare"><img alt="codecov" src="https://codecov.io/gh/OlivierBinette/StringCompare/branch/main/graph/badge.svg?token=F8ASD5R051" />
+</a>
+<a class="reference external image-reference" href="https://www.codefactor.io/repository/github/olivierbinette/stringcompare"><img alt="CodeFactor" src="https://www.codefactor.io/repository/github/olivierbinette/stringcompare/badge" />
+</a>
+<a class="reference external image-reference" href="https://lifecycle.r-lib.org/articles/stages.html"><img alt="Lifecycle Maturing" src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" />
+</a>
+<a class="reference external image-reference" href="https://github.com/OlivierBinette/StringCompare/releases"><img alt="Release version" src="https://img.shields.io/github/v/release/olivierbinette/stringcompare" />
+</a>
+<a class="reference external image-reference" href="https://github.com/sponsors/OlivierBinette"><img alt="Sponsors" src="https://img.shields.io/github/sponsors/OlivierBinette" />
+</a>
 <section id="stringcompare-efficient-string-comparison-functions">
-<h1>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions<a class="headerlink" href="#stringcompare-efficient-string-comparison-functions" title="Permalink to this headline"></a></h1>
+<h1>⚡ <strong>StringCompare</strong>: Efficient String Comparison Functions<a class="headerlink" href="#stringcompare-efficient-string-comparison-functions" title="Link to this heading"></a></h1>
 <p><strong>StringCompare</strong> is a Python package for efficient string similarity computation and approximate string matching. It is inspired by the excellent <a class="reference external" href="https://github.com/ngmarchant/comparator">*comparator*</a> and <a class="reference external" href="https://github.com/markvanderloo/stringdist">*stringdist*</a> R packages, and from the equally excellent <a class="reference external" href="https://github.com/anhaidgroup/py_stringmatching">*py_stringmatching*</a>, <a class="reference external" href="https://github.com/jamesturk/jellyfish">*jellyfish*</a>, and <a class="reference external" href="https://github.com/life4/textdistance">*textdistance*</a> Python packages.</p>
 <p>The key feature of <strong>StringCompare</strong> is a focus on speed, extensibility and maintainability through its <a class="reference external" href="https://github.com/pybind/pybind11">*pybind11*</a> C++ implementation. <strong>StringCompare</strong> is faster than most other Python libraries (see benchmark below) and much more memory efficient when dealing with long strings.</p>
 <p>The <a class="reference external" href="https://olivierbinette.github.io/StringCompare/source/stringcompare.html">complete API documentation</a> is available on the project website <a class="reference external" href="https://olivierbinette.github.io/StringCompare">olivierbinette.github.io/StringCompare</a>.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Install the released version from github using the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/OlivierBinette/StringCompare.git@release
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/OlivierBinette/StringCompare.git@release
 </pre></div>
 </div>
 </section>
 <section id="project-roadmap">
-<h2>Project Roadmap<a class="headerlink" href="#project-roadmap" title="Permalink to this headline"></a></h2>
+<h2>Project Roadmap<a class="headerlink" href="#project-roadmap" title="Link to this heading"></a></h2>
 <p><strong>StringCompare</strong> currently implements <a class="reference external" href="https://en.wikipedia.org/wiki/Edit_distance">edit distances</a> and similarity functions, such as the Levenshtein, Damerau-Levenshtein, Jaro, and Jaro-Winkler distances. This is <em>stage 1</em> of the following development roadmap:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Stage</p></th>
 <th class="head"><p>Goals</p></th>
@@ -135,9 +141,9 @@
 </table>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <p>Comparison algorithms are instanciated as <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> object, which provides the <code class="docutils literal notranslate"><span class="pre">compare()</span></code> method (equivalent to <code class="docutils literal notranslate"><span class="pre">__call__()</span></code>) for string comparison.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">Levenshtein</span><span class="p">,</span> <span class="n">Jaro</span><span class="p">,</span> <span class="n">JaroWinkler</span><span class="p">,</span> <span class="n">DamerauLevenshtein</span><span class="p">,</span> <span class="n">LCSDistance</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">stringcompare</span><span class="w"> </span><span class="kn">import</span> <span class="n">Levenshtein</span><span class="p">,</span> <span class="n">Jaro</span><span class="p">,</span> <span class="n">JaroWinkler</span><span class="p">,</span> <span class="n">DamerauLevenshtein</span><span class="p">,</span> <span class="n">LCSDistance</span>
 
 <span class="n">lev</span> <span class="o">=</span> <span class="n">Levenshtein</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">similarity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -164,16 +170,16 @@
 </div>
 </section>
 <section id="benchmark">
-<h2>Benchmark<a class="headerlink" href="#benchmark" title="Permalink to this headline"></a></h2>
+<h2>Benchmark<a class="headerlink" href="#benchmark" title="Link to this heading"></a></h2>
 <p>Comparison of the Damerau-Levenshtein implementation speed for different Python packages, when comparing the strings “Olivier Binette” and “Oilvier Benet”:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
-<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">timeit</span><span class="w"> </span><span class="kn">import</span> <span class="n">timeit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
 
 <span class="c1"># Comparison functions</span>
-<span class="kn">from</span> <span class="nn">stringcompare</span> <span class="kn">import</span> <span class="n">DamerauLevenshtein</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">stringcompare</span><span class="w"> </span><span class="kn">import</span> <span class="n">DamerauLevenshtein</span>
 <span class="n">cmp</span> <span class="o">=</span> <span class="n">DamerauLevenshtein</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">jellyfish</span> <span class="kn">import</span> <span class="n">damerau_levenshtein_distance</span>
-<span class="kn">from</span> <span class="nn">textdistance</span> <span class="kn">import</span> <span class="n">damerau_levenshtein</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jellyfish</span><span class="w"> </span><span class="kn">import</span> <span class="n">damerau_levenshtein_distance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textdistance</span><span class="w"> </span><span class="kn">import</span> <span class="n">damerau_levenshtein</span>
 
 <span class="n">functions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;StringCompare&quot;</span><span class="p">:</span> <span class="n">cmp</span><span class="o">.</span><span class="n">compare</span><span class="p">,</span>
@@ -190,39 +196,39 @@
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span>          <span class="n">avg</span> <span class="n">runtime</span> <span class="p">(</span><span class="n">ns</span><span class="p">)</span>
 <span class="o">-------------</span>  <span class="o">------------------</span>
-<span class="n">StringCompare</span>             <span class="mf">697.834</span>
-<span class="n">jellyfish</span>                 <span class="mf">974.363</span>
-<span class="n">textdistance</span>             <span class="mf">3982.73</span>
+<span class="n">StringCompare</span>             <span class="mf">468.102</span>
+<span class="n">jellyfish</span>                <span class="mf">2534.58</span>
+<span class="n">textdistance</span>           <span class="mi">101179</span>
 </pre></div>
 </div>
 <section id="performance-notes">
-<h3>Performance notes<a class="headerlink" href="#performance-notes" title="Permalink to this headline"></a></h3>
+<h3>Performance notes<a class="headerlink" href="#performance-notes" title="Link to this heading"></a></h3>
 <p>The use of pybind11 comes with a small performance overhead. We could be faster if we directly interfaced with CPython.</p>
 <p>However, the use of pybind11 allows the library to be easily extensible and maintainable. The C++ implementation has little to worry about Python, excepted for the use of a pybind11 numpy wrapper in some places. Pybind11 takes care of the details of exposing the C++ API to Python.</p>
 </section>
 </section>
 <section id="known-bugs">
-<h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Permalink to this headline"></a></h2>
+<h2>Known Bugs<a class="headerlink" href="#known-bugs" title="Link to this heading"></a></h2>
 <p><em>pybind11</em> has compatibility issues with gcc 11 (e.g. on Ubuntu 21.10). If running Linux and <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">--version</span></code> is 11, then use the following commands to configure your environment before (re)installing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install g++-9 gcc-9
-<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span>gcc-9 <span class="nv">CXX</span><span class="o">=</span>g++-9
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>g++-9<span class="w"> </span>gcc-9
+<span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span>gcc-9<span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>g++-9
 </pre></div>
 </div>
 <p>If this is unsuccessful, you might want to use <strong>StringCompare</strong> within a <a class="reference external" href="https://www.docker.com/">Docker</a> container. I recommend using the python:3.7.9 base image. For example, after installing docker, you can launch an interactive bash session and install <strong>StringCompare</strong> as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo docker run -it python:3.7.9 bash
-pip install git+https://github.com/OlivierBinette/StringCompare.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>python:3.7.9<span class="w"> </span>bash
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/OlivierBinette/StringCompare.git
 python
-&gt;&gt;&gt; import stringcompare
+&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>stringcompare
 </pre></div>
 </div>
 <p>Please report installation issues <a class="reference external" href="https://github.com/OlivierBinette/StringCompare/issues">here</a>.</p>
 </section>
 <section id="contribute">
-<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline"></a></h2>
+<h2>Contribute<a class="headerlink" href="#contribute" title="Link to this heading"></a></h2>
 <p><strong>StringCompare</strong> is currently in early development stage and contributions are welcome! See the <a class="reference external" href="https://olivierbinette.github.io/StringCompare/contributing.html">contributing</a> page for more information.</p>
 </section>
 <section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline"></a></h2>
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading"></a></h2>
 <p>This project is made possible by the support of the <a class="reference external" href="www.nserc-crsng.gc.ca">Natural Sciences and Engineering Research Council of Canada (NSERC)</a> and by the support of a <a class="reference external" href="https://www.gresearch.co.uk/">G-Research</a> grant.</p>
 <p><span class="raw-html-m2r"><a href="https://www.gresearch.co.uk/"><img src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/gtqacyz2dx8jqicpnmqr" height=100 style="margin:20px"></a></span><span class="raw-html-m2r"><a href="https://www.nserc-crsng.gc.ca"><img src="https://umanitoba.ca/faculties/engineering/media/NSERC_Logo.png" height=100 style="margin:20px"></a></span></p>
 <p>I would also like to thank the support of my individual <a class="reference external" href="https://github.com/sponsors/olivierbinette">Github sponsors</a>.</p>

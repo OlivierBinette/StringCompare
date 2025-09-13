@@ -1,8 +1,8 @@
 from .distance import *
 from .preprocessing import *
 
-import pkg_resources
+from importlib.metadata import version
 
-__version__ = pkg_resources.require("stringcompare")[0].version
+__version__ = version("stringcompare")
 
 __all__ = ["__version__"] + distance.__all__ + preprocessing.__all__

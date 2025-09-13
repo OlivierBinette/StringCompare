@@ -3,6 +3,7 @@
 /data/__pycache__
 /dist
 /stringcompare.egg-info
+.pytest_cache/
 
 *.pyc
 .vscode/c_cpp_properties.json
@@ -21,4 +22,6 @@ documentation/doctrees
 *.log
 .lock
 .package.lock
-*.eggs
+*.eggs# pixi environments
+.pixi/*
+!.pixi/config.toml
