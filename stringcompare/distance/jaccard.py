@@ -1,5 +1,5 @@
-from .comparator import StringComparator
-from ..preprocessing.tokenizer import Tokenizer, WhitespaceTokenizer
+from stringcompare.distance.comparator import StringComparator
+from stringcompare.preprocessing.tokenizer import Tokenizer, WhitespaceTokenizer
 
 def jaccard(s,t,token):
   s_token = token(s) 

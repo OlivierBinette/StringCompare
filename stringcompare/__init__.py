@@ -1,5 +1,5 @@
-from .distance import *
-from .preprocessing import *
+from stringcompare.distance import *
+from stringcompare.preprocessing import *
 
 from importlib.metadata import version
 

@@ -1,6 +1,6 @@
 from typing import Counter
 import numpy as np
-from .comparator import StringComparator
+from stringcompare.distance.comparator import StringComparator
 
 
 def _character_difference(s, t):

@@ -1,4 +1,4 @@
-from .comparator import StringComparator
+from stringcompare.distance.comparator import StringComparator
 from itertools import zip_longest
 
 def hamming(s, t):

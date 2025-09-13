@@ -1,5 +1,5 @@
 import numpy as np
-from .comparator import StringComparator
+from stringcompare.distance.comparator import StringComparator
 
 
 def levenshtein(s, t):

@@ -1,5 +1,5 @@
-from .tokenizer import Tokenizer, DelimTokenizer, WhitespaceTokenizer, NGramTokenizer
-from .tagger import Tagger, DeepparseAddressTagger
+from stringcompare.preprocessing.tokenizer import Tokenizer, DelimTokenizer, WhitespaceTokenizer, NGramTokenizer
+from stringcompare.preprocessing.tagger import Tagger, DeepparseAddressTagger
 
 __all__ = [
     "Tokenizer",

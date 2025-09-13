@@ -1,5 +1,5 @@
-from .jaro import jaro
-from .comparator import StringComparator
+from stringcompare.distance.jaro import jaro
+from stringcompare.distance.comparator import StringComparator
 
 
 def jarowinkler(s, t, p=0.1):

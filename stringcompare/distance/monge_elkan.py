@@ -1,8 +1,8 @@
-from .comparator import StringComparator
-from ..preprocessing.tokenizer import Tokenizer
+from stringcompare.distance.comparator import StringComparator
+from stringcompare.preprocessing.tokenizer import Tokenizer
 
-from ..distance.levenshtein import Levenshtein
-from ..preprocessing.tokenizer import WhitespaceTokenizer
+from stringcompare.distance.levenshtein import Levenshtein
+from stringcompare.preprocessing.tokenizer import WhitespaceTokenizer
 
 
 class MongeElkan(StringComparator):

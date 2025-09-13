@@ -1,4 +1,4 @@
-from .comparator import StringComparator
+from stringcompare.distance.comparator import StringComparator
 
 
 def jaro(s, t):
