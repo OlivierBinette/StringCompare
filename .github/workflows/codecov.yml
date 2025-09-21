@@ -4,24 +4,18 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v4
     - name: Setup Python
-      uses: actions/setup-python@master
+      uses: actions/setup-python@v4
       with:
         python-version: 3.13
     - name: Generate coverage report
       run: |
         pip install -e .
-        pip install pytest
-        pip install pytest-cov
-        pytest --cov=./stringcompare --cov-report=xml
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
+        pip install pytest pytest-cov
+        pytest --cov --junitxml=junit.xml -o junit_family=legacy
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
       with:
-        directory: ./
-        fail_ci_if_error: true
-        files: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        path_to_write_report: ./coverage/codecov_report.txt
-        verbose: true
+        token: ${{ secrets.CODECOV_TOKEN }}
