@@ -13,7 +13,7 @@ python = "3.12.*"
 hatch = ">=1.14.1,<2"
 
 [pypi-dependencies]
-stringcompare = {path=".", editable=true}
+py-stringcompare = {path=".", editable=true}
 ipython = ">=9.5.0, <10"
 jupyter = ">=1.1.1, <2"
 numpy = "<2"
