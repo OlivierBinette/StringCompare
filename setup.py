@@ -14,12 +14,10 @@ if __name__ == "__main__":
     setup(
         ext_modules=ext_modules,
         name="stringcompare",
-        version="0.1.0",
+        version="0.2.0",
         author="Olivier Binette",
         author_email="olivier.binette@gmail.com",
         description="Efficient string comparison functions.",
-        #license="",
-        #license_files="",
         keywords=[
             "record-linkage",
             "string-distance",
