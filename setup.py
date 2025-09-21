@@ -14,7 +14,7 @@ if __name__ == "__main__":
     setup(
         ext_modules=ext_modules,
         name="py-stringcompare",
-        version="0.2.1",
+        version="0.2.2",
         author="Olivier Binette",
         author_email="olivier.binette@gmail.com",
         description="Efficient string comparison functions.",

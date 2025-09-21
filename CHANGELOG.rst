@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.2.1 (2025-09-21)
+0.2.2 (2025-09-21)
 ----------
 
 * General maintenance update
