@@ -2,9 +2,10 @@
 Changelog
 =========
 
-Unreleased
+0.2.0 (2025-09-21)
 ----------
 
+* General maintenance update
 * Mandatory bound checking in C++ implementations
 
 0.1.0 (2022-04-05)
